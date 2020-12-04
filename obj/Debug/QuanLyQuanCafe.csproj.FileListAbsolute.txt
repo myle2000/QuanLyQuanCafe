@@ -1,0 +1,13 @@
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.exe.config
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.exe
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.pdb
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csprojAssemblyReference.cache
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fAccountProfile.resources
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fAdmin.resources
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fLogin.resources
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fTableManager.resources
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Properties.Resources.resources
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.GenerateResource.cache
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.CoreCompileInputs.cache
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe
+E:\3nd year\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.pdb
