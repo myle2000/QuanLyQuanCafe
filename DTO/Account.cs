@@ -9,12 +9,14 @@ namespace QuanLyQuanCafe.DTO
 {
     public class Account
     {
-        public Account(string userName, string displayName, int type, string password = null)
+        private int id_staff;
+        public Account(string userName, string displayName, int type, string password = null, int id_staff = 0)
         {
             this.UserName = userName;
             this.DisplayName = displayName;
             this.Type = type;
             this.Password = password;
+            this.id_staff = id_staff;
         }
 
         public Account(DataRow row)
@@ -56,5 +58,7 @@ namespace QuanLyQuanCafe.DTO
             get { return userName; }
             set { userName = value; }
         }
+
+        public int Id_staff { get => id_staff; set => id_staff = value; }
     }
 }

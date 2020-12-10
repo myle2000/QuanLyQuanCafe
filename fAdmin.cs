@@ -19,17 +19,24 @@ namespace QuanLyQuanCafe
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
-
+        
 
         public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
+            dtgvAccount.DataSource = accountList;
             LoadData();
-            //LoadAccountList();
+            LoadListNameStaff(cbNameStaff );
         }
 
-        void LoadAccountList()//ngan-còn sửabai4-23:54, bai5-6:17
+        void LoadListNameStaff(ComboBox cb)
+        {
+            cb.DataSource = StaffDAO.Instance.GetListStaff();
+            cb.DisplayMember = "Name" ;
+        }
+
+        void LoadAccountList()
         {
             string query = "select * from dbo.Account";
             dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] { "staff" });
@@ -58,10 +65,12 @@ namespace QuanLyQuanCafe
         }
 
         void AddAccountBinding()
-        {
+        {//xử lý textbox
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
             numericUpDown1.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+            txtPass.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "password", true, DataSourceUpdateMode.Never));
+            cbNameStaff.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Staff_name", true, DataSourceUpdateMode.Never));
         }
 
         void LoadAccount()
@@ -96,9 +105,9 @@ namespace QuanLyQuanCafe
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
 
-        void AddAccount(string userName, string displayName, int type)
+        void AddAccount(string userName, string displayName, int type, int id_staff)
         {
-            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type, id_staff))
             {
                 MessageBox.Show("Thêm tài khoản thành công");
             }
@@ -110,9 +119,9 @@ namespace QuanLyQuanCafe
             LoadAccount();
         }
 
-        void EditAccount(string userName, string displayName, int type)
+        void EditAccount(string userName, string displayName, string pass, int type, int id_staff)
         {
-            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, pass, type, id_staff))
             {
                 MessageBox.Show("Cập nhật tài khoản thành công");
             }
@@ -143,9 +152,9 @@ namespace QuanLyQuanCafe
             LoadAccount();
         }
 
-        void ResetPass(string userName)
+        void ResetPass(string userName, string pass)
         {
-            if (AccountDAO.Instance.ResetPassword(userName))
+            if (AccountDAO.Instance.ResetPassword(userName, pass))
             {
                 MessageBox.Show("Đặt lại mật khẩu thành công");
             }
@@ -162,8 +171,9 @@ namespace QuanLyQuanCafe
             string userName = txbUserName.Text;
             string displayName = txbDisplayName.Text;
             int type = (int)numericUpDown1.Value;
+            int id_staff = (cbNameStaff.SelectedItem as Staff).Id;
 
-            AddAccount(userName, displayName, type);
+            AddAccount(userName, displayName, type, id_staff);
         }
 
         private void btnDeleteAccount_Click(object sender, EventArgs e)
@@ -178,16 +188,18 @@ namespace QuanLyQuanCafe
             string userName = txbUserName.Text;
             string displayName = txbDisplayName.Text;
             int type = (int)numericUpDown1.Value;
+            int id_staff = (cbNameStaff.SelectedItem as Staff).Id;
+            string pass = txtPass.Text;
 
-            EditAccount(userName, displayName, type);
+            EditAccount(userName, displayName, pass, type, id_staff);
         }
 
 
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             string userName = txbUserName.Text;
-
-            ResetPass(userName);
+            
+            
         }
 
 

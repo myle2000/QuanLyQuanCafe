@@ -25,7 +25,7 @@ namespace QuanLyQuanCafe.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "select * from Food where idCategory = " + id;
+            string query = "select * from Food where id_Category = " + id;
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -75,7 +75,7 @@ namespace QuanLyQuanCafe.DAO
 
         public bool InsertFood(string name, int id, float price)
         {
-            string query = string.Format("INSERT dbo.Food ( name, idCategory, price )VALUES  ( N'{0}', {1}, {2})", name, id, price);
+            string query = string.Format("INSERT dbo.Food ( name, id_Category, price )VALUES  ( N'{0}', {1}, {2})", name, id, price);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -83,7 +83,7 @@ namespace QuanLyQuanCafe.DAO
 
         public bool UpdateFood(int idFood, string name, int id, float price)
         {
-            string query = string.Format("UPDATE dbo.Food SET name = N'{0}', idCategory = {1}, price = {2} WHERE id = {3}", name, id, price, idFood);
+            string query = string.Format("UPDATE dbo.Food SET name = N'{0}', id_Category = {1}, price = {2} WHERE id = {3}", name, id, price, idFood);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;

@@ -36,7 +36,9 @@ namespace QuanLyQuanCafe
 
         void UpdateAccountInfo()
         {
-            string displayName = txbDisplayName.Text;
+            //tạm thời cmt,nào đụng tới rồi sửa
+
+            /*string displayName = txbDisplayName.Text;
             string password = txbPassWord.Text;
             string newpass = txbNewPass.Text;
             string reenterPass = txbReEnterPass.Text;
@@ -58,7 +60,7 @@ namespace QuanLyQuanCafe
                 {
                     MessageBox.Show("Vui lòng điền đúng mật khấu");
                 }
-            }
+            }*/
         }
 
         private event EventHandler<AccountEvent> updateAccount;

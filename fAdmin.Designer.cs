@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel23 = new System.Windows.Forms.Panel();
-            this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.btnShowAccount = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
@@ -122,6 +120,12 @@
             this.QuanLyQuanCafeDataSet2 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2();
             this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
+            this.txtName = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbNameStaff = new System.Windows.Forms.ComboBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.tpAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -164,6 +168,8 @@
             this.tcAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).BeginInit();
+            this.txtName.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpAccount
@@ -182,7 +188,8 @@
             // 
             // panel23
             // 
-            this.panel23.Controls.Add(this.btnResetPassword);
+            this.panel23.Controls.Add(this.panel22);
+            this.panel23.Controls.Add(this.txtName);
             this.panel23.Controls.Add(this.panel25);
             this.panel23.Controls.Add(this.panel26);
             this.panel23.Controls.Add(this.panel27);
@@ -192,22 +199,11 @@
             this.panel23.Size = new System.Drawing.Size(428, 532);
             this.panel23.TabIndex = 6;
             // 
-            // btnResetPassword
-            // 
-            this.btnResetPassword.Location = new System.Drawing.Point(306, 235);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(112, 71);
-            this.btnResetPassword.TabIndex = 4;
-            this.btnResetPassword.Text = "Đặt lại mật khẩu";
-            this.btnResetPassword.UseVisualStyleBackColor = true;
-            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
-            // 
             // panel25
             // 
             this.panel25.Controls.Add(this.numericUpDown1);
             this.panel25.Controls.Add(this.label11);
-            this.panel25.Location = new System.Drawing.Point(4, 158);
+            this.panel25.Location = new System.Drawing.Point(4, 357);
             this.panel25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(418, 68);
@@ -241,7 +237,7 @@
             // 
             this.panel26.Controls.Add(this.txbDisplayName);
             this.panel26.Controls.Add(this.label12);
-            this.panel26.Location = new System.Drawing.Point(4, 82);
+            this.panel26.Location = new System.Drawing.Point(4, 83);
             this.panel26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(418, 68);
@@ -297,7 +293,6 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.btnShowAccount);
             this.panel28.Controls.Add(this.btnEditAccount);
             this.panel28.Controls.Add(this.btnDeleteAccount);
             this.panel28.Controls.Add(this.btnAddAccount);
@@ -306,17 +301,6 @@
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(524, 80);
             this.panel28.TabIndex = 5;
-            // 
-            // btnShowAccount
-            // 
-            this.btnShowAccount.Location = new System.Drawing.Point(369, 5);
-            this.btnShowAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnShowAccount.Name = "btnShowAccount";
-            this.btnShowAccount.Size = new System.Drawing.Size(112, 71);
-            this.btnShowAccount.TabIndex = 3;
-            this.btnShowAccount.Text = "Xem";
-            this.btnShowAccount.UseVisualStyleBackColor = true;
-            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -1136,6 +1120,64 @@
             // 
             this.USP_GetListBillByDateForReportTableAdapter.ClearBeforeFill = true;
             // 
+            // txtName
+            // 
+            this.txtName.Controls.Add(this.cbNameStaff);
+            this.txtName.Controls.Add(this.label10);
+            this.txtName.Location = new System.Drawing.Point(6, 161);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(418, 68);
+            this.txtName.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label10.Location = new System.Drawing.Point(4, 14);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(190, 29);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Tên nhân viên: ";
+            // 
+            // cbNameStaff
+            // 
+            this.cbNameStaff.FormattingEnabled = true;
+            this.cbNameStaff.Location = new System.Drawing.Point(188, 14);
+            this.cbNameStaff.Name = "cbNameStaff";
+            this.cbNameStaff.Size = new System.Drawing.Size(222, 28);
+            this.cbNameStaff.TabIndex = 1;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.txtPass);
+            this.panel22.Controls.Add(this.label14);
+            this.panel22.Location = new System.Drawing.Point(6, 239);
+            this.panel22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(418, 68);
+            this.panel22.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label14.Location = new System.Drawing.Point(4, 14);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(125, 29);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Mật khẩu:";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(188, 18);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(222, 26);
+            this.txtPass.TabIndex = 2;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1203,6 +1245,10 @@
             this.tcAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).EndInit();
+            this.txtName.ResumeLayout(false);
+            this.txtName.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1211,7 +1257,6 @@
 
         private System.Windows.Forms.TabPage tpAccount;
         private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label11;
@@ -1222,7 +1267,6 @@
         private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Button btnShowAccount;
         private System.Windows.Forms.Button btnEditAccount;
         private System.Windows.Forms.Button btnDeleteAccount;
         private System.Windows.Forms.Button btnAddAccount;
@@ -1304,6 +1348,11 @@
         private System.Windows.Forms.BindingSource USP_GetListBillByDateForReportBindingSource;
         private QuanLyQuanCafeDataSet2 QuanLyQuanCafeDataSet2;
         private QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter USP_GetListBillByDateForReportTableAdapter;
-
+        private System.Windows.Forms.Panel txtName;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbNameStaff;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Label label14;
     }
 }

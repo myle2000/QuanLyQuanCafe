@@ -21,7 +21,7 @@ namespace QuanLyQuanCafe.DTO
         {
             this.ID = (int)row["id"];
             this.Name = row["name"].ToString();
-            this.CategoryID = (int)row["idcategory"];
+            this.CategoryID = (int)row["id_category"];
             this.Price = (float)Convert.ToDouble(row["price"].ToString());
         }
 
