@@ -21,9 +21,9 @@ namespace QuanLyQuanCafe.DTO
         public Bill(DataRow row)
         {
             this.ID = (int)row["id"];
-            this.DateCheckIn = (DateTime?)row["dateCheckin"];
+            this.DateCheckIn = (DateTime?)row["dayCheckIn"];
 
-            var dateCheckOutTemp = row["dateCheckOut"];
+            var dateCheckOutTemp = row["dayCheckOut"];
             if (dateCheckOutTemp.ToString() != "")
                 this.DateCheckOut = (DateTime?)dateCheckOutTemp;
 

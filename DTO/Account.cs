@@ -25,6 +25,7 @@ namespace QuanLyQuanCafe.DTO
             this.DisplayName = row["displayName"].ToString();
             this.Type = (int)row["type"];
             this.Password = row["password"].ToString();
+            this.Id_staff = (int)row["id_staff"];
         }
 
         private int type;

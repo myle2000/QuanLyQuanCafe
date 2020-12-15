@@ -17,11 +17,10 @@ namespace QuanLyQuanCafe
     public partial class fTableManager : Form
     {
         private Account loginAccount;
-
         public Account LoginAccount
         {
             get { return loginAccount; }
-            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+            set { loginAccount = value; ChangeAccount(loginAccount.Type);  }
         }
         public fTableManager(Account acc)
         {
@@ -39,7 +38,7 @@ namespace QuanLyQuanCafe
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Enabled = type == 1;
-            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName +")";
         }
         void LoadCategory()
         {
@@ -63,17 +62,17 @@ namespace QuanLyQuanCafe
             foreach (Table item in tableList)
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight};
-                btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Text = item.Name + Environment.NewLine;
                 btn.Click += btn_Click;
                 btn.Tag = item;
 
                 switch (item.Status)
                 {
-                    case "Trống":
-                        btn.BackColor = Color.Aqua;
+                    case "0":
+                        btn.BackColor = Color.LightGray;
                         break;
                     default:
-                        btn.BackColor = Color.LightPink;
+                        btn.BackColor = Color.Green;
                         break;
                 }
 
@@ -208,9 +207,9 @@ namespace QuanLyQuanCafe
             int foodID = (cbFood.SelectedItem as Food).ID;
             int count = (int)nmFoodCount.Value;
 
-            if (idBill == -1)//chưa có bill này
+            if (idBill == -1)
             {
-                BillDAO.Instance.InsertBill(table.ID);
+                BillDAO.Instance.InsertBill(table.ID, LoginAccount.Id_staff);
                 BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID , count);
             }
             else
@@ -221,7 +220,25 @@ namespace QuanLyQuanCafe
             ShowBill(table.ID);
 
             LoadTable();
-        }        
+        }
+        private void btnDelFood_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa món này không?"  , "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                Table table = lsvBill.Tag as Table;
+                if (table == null)
+                {
+                    MessageBox.Show("Hãy chọn bàn");
+                    return;
+                }
+                int id_bill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+                int id_food = FoodDAO.Instance.SearchIDfood(lsvBill.SelectedItems[0].SubItems[0].Text);
+                BillInfoDAO.Instance.DeleteBillInfoByFoodIDBillID(id_bill, id_food);
+                ShowBill(table.ID);
+                LoadTable();
+            }
+            
+        }
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
@@ -230,11 +247,11 @@ namespace QuanLyQuanCafe
             int discount = (int)nmDisCount.Value;
 
             double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
-            double finalTotalPrice = totalPrice - (totalPrice/100)*discount;
+            double finalTotalPrice = totalPrice - discount;
 
             if (idBill != -1)
             {
-                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} / 100) x {2} = {3}",table.Name, totalPrice, discount, finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0} với giảm giá {1}.000đ. Tổng thanh toán =  {2}đ ", table.Name, discount,finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
                     ShowBill(table.ID);
@@ -247,18 +264,28 @@ namespace QuanLyQuanCafe
         {           
 
             int id1 = (lsvBill.Tag as Table).ID;
-
             int id2 = (cbSwitchTable.SelectedItem as Table).ID;
-            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (id1 == id2)
             {
-                TableDAO.Instance.SwitchTable(id1, id2);
-
-                LoadTable();
+                MessageBox.Show("Lỗi", "Thông báo");
             }
+            else
+            {
+                if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    if ((cbSwitchTable.SelectedItem as Table).Status != "1")//TH bàn sắp chuyển trống
+                    {
+                        TableDAO.Instance.SwitchTableEmpty(id1, id2);
+                    }
+                    else//TH bàn sắp chuyển đã có bill
+                    {
+                        TableDAO.Instance.SwitchTableNotEmpty(id1, id2);
+                    }
+                }
+            }
+            
+            LoadTable();
         }
-
-        #endregion        
-
-
+        #endregion
     }
 }

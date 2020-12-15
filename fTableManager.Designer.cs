@@ -49,6 +49,7 @@
             this.nmDisCount = new System.Windows.Forms.NumericUpDown();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDelFood = new System.Windows.Forms.Button();
             this.nmFoodCount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.cbFood = new System.Windows.Forms.ComboBox();
@@ -72,7 +73,7 @@
             this.chứcNăngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1196, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1196, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -165,11 +166,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Số lượng";
+            this.columnHeader2.Width = 86;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Đơn giá";
-            this.columnHeader3.Width = 129;
+            this.columnHeader3.Width = 115;
             // 
             // columnHeader4
             // 
@@ -244,6 +246,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnDelFood);
             this.panel4.Controls.Add(this.nmFoodCount);
             this.panel4.Controls.Add(this.btnAddFood);
             this.panel4.Controls.Add(this.cbFood);
@@ -253,6 +256,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(507, 80);
             this.panel4.TabIndex = 4;
+            // 
+            // btnDelFood
+            // 
+            this.btnDelFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelFood.Location = new System.Drawing.Point(321, 43);
+            this.btnDelFood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelFood.Name = "btnDelFood";
+            this.btnDelFood.Size = new System.Drawing.Size(112, 37);
+            this.btnDelFood.TabIndex = 4;
+            this.btnDelFood.Text = "Xóa món";
+            this.btnDelFood.UseVisualStyleBackColor = true;
+            this.btnDelFood.Click += new System.EventHandler(this.btnDelFood_Click);
             // 
             // nmFoodCount
             // 
@@ -277,7 +292,7 @@
             this.btnAddFood.Location = new System.Drawing.Point(321, 5);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(112, 71);
+            this.btnAddFood.Size = new System.Drawing.Size(112, 39);
             this.btnAddFood.TabIndex = 2;
             this.btnAddFood.Text = "Thêm món";
             this.btnAddFood.UseVisualStyleBackColor = true;
@@ -367,5 +382,6 @@
         private System.Windows.Forms.ToolStripMenuItem chứcNăngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thanhToánToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thêmMónToolStripMenuItem;
+        private System.Windows.Forms.Button btnDelFood;
     }
 }

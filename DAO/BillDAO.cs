@@ -28,7 +28,7 @@ namespace QuanLyQuanCafe.DAO
         /// <returns></returns>
         public int GetUncheckBillIDByTableID(int id)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Bill WHERE idTable = " + id +" AND status = 0");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Bill WHERE id_Table = " + id +" AND status = 0");
 
             if (data.Rows.Count > 0)
             {
@@ -41,12 +41,12 @@ namespace QuanLyQuanCafe.DAO
 
         public void CheckOut(int id, int discount, float totalPrice)
         {
-            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET dayCheckOut = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
-        public void InsertBill(int id)
-        {
-            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[]{id});
+        public void InsertBill(int id, int id_staff)
+        {            
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable , @id_staff", new object[]{id, id_staff });
         }
 
         public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)

@@ -98,5 +98,16 @@ namespace QuanLyQuanCafe.DAO
 
             return result > 0;
         }
+        public int SearchIDfood(string nameFood)
+        {
+            string query = string.Format("select id as id from FOOD WHERE name=N'" + nameFood + "'");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            int num = 0;
+            foreach (DataRow dr in data.Rows)
+            {
+                num = Convert.ToInt32(dr["id"].ToString());// bạn duyệt qua table bằng foreach, columnName là tên cột cần lấy  
+            }
+            return num;
+        }
     }
 }

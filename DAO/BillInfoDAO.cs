@@ -22,7 +22,7 @@ namespace QuanLyQuanCafe.DAO
 
         public void DeleteBillInfoByFoodID(int id)
         {
-            DataProvider.Instance.ExecuteQuery("delete dbo.BillInfo WHERE idFood = " + id);
+            DataProvider.Instance.ExecuteQuery("delete dbo.Bill_Info WHERE id_Food = " + id);
         }
         public List<BillInfo> GetListBillInfo(int id)
         {
@@ -43,5 +43,10 @@ namespace QuanLyQuanCafe.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("USP_InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
         }
+        public void DeleteBillInfoByFoodIDBillID(int bill_id, int food_id)
+        {
+            DataProvider.Instance.ExecuteQuery("delete from BILL_inf WHERE id_bill= "+ bill_id + " and id_food= " + food_id);
+        }
+
     }
 }
