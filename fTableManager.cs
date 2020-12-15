@@ -277,7 +277,6 @@ namespace QuanLyQuanCafe
                     {
                         TableDAO.Instance.SwitchTableEmpty(id1, id2);
                     }
-                    else//TH bàn sắp chuyển đã có bill
                     {
                         TableDAO.Instance.SwitchTableNotEmpty(id1, id2);
                     }
