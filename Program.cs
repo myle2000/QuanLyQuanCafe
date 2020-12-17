@@ -12,11 +12,11 @@ namespace QuanLyQuanCafe
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main()//ngân nháp nhánh
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fAdmin());
+            Application.Run(new fLogin());
         }
     }
 }
