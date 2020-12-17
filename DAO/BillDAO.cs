@@ -39,10 +39,9 @@ namespace QuanLyQuanCafe.DAO
             return -1;
         }
 
-        public void CheckOut(int id, int discount, float totalPrice)
+        public void CheckOut(int id, int discount, int totalPrice, int id_table)
         {
-            string query = "UPDATE dbo.Bill SET dayCheckOut = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
-            DataProvider.Instance.ExecuteNonQuery(query);
+            DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateBill @id  , @discount  , @totalPrice , @id_table", new object[] { id, discount, totalPrice, id_table });
         }
         public void InsertBill(int id, int id_staff)
         {            
