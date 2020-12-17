@@ -59,9 +59,8 @@ namespace QuanLyQuanCafe.DAO
         {                     
 
             List<Food> list = new List<Food>();
-
-            string query = string.Format("SELECT * FROM dbo.Food WHERE dbo.fuConvertToUnsign1(name) LIKE N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
-
+            string query = string.Format("select * from FOOD where name like N'%{0}%'", name);
+            //string query = string.Format("SELECT * FROM dbo.Food WHERE dbo.fuConvertToUnsign1(name) LIKE N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
@@ -83,7 +82,7 @@ namespace QuanLyQuanCafe.DAO
 
         public bool UpdateFood(int idFood, string name, int id, float price)
         {
-            string query = string.Format("UPDATE dbo.Food SET name = N'{0}', id_Category = {1}, price = {2} WHERE id = {3}", name, id, price, idFood);
+            string query = string.Format("UPDATE dbo.FOOD SET name = N'{0}', id_Category = {1}, price = {2} WHERE id = {3}", name, id, price, idFood);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -91,8 +90,11 @@ namespace QuanLyQuanCafe.DAO
 
         public bool DeleteFood(int idFood)
         {
-            BillInfoDAO.Instance.DeleteBillInfoByFoodID(idFood);
-
+            try
+            {
+                BillInfoDAO.Instance.DeleteBillInfoByFoodID(idFood);
+            }
+            catch { }
             string query = string.Format("Delete Food where id = {0}",idFood);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 

@@ -24,3 +24,16 @@ D:\Năm 3\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.cspr
 D:\Năm 3\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.CoreCompileInputs.cache
 D:\Năm 3\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe
 D:\Năm 3\Công nghệ phần mềm\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.pdb
+D:\Năm 3\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.exe.config
+D:\Năm 3\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.exe
+D:\Năm 3\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.pdb
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csprojAssemblyReference.cache
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fAccountProfile.resources
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fAdmin.resources
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fLogin.resources
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.fTableManager.resources
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Properties.Resources.resources
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.GenerateResource.cache
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.CoreCompileInputs.cache
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe
+D:\Năm 3\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.pdb

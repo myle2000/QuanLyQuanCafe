@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
-        
+        BindingSource categoryList = new BindingSource();
 
         public Account loginAccount;
         public fAdmin()
@@ -53,15 +53,17 @@ namespace QuanLyQuanCafe
         void LoadData()
         {
             dtgvFood.DataSource = foodList;
+            dtgvCategory.DataSource = categoryList;
             dtgvAccount.DataSource = accountList;
-
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
+            LoadListCategory();
             LoadAccount();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
             AddAccountBinding();
+            AddCategoryBinding();
         }
 
         void AddAccountBinding()
@@ -94,6 +96,11 @@ namespace QuanLyQuanCafe
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
+        void AddCategoryBinding()
+        {
+            txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
+        }
 
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
@@ -105,6 +112,12 @@ namespace QuanLyQuanCafe
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
 
+        void LoadListCategory()
+        {
+            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+
+        //Account
         void AddAccount(string userName, string displayName, int type, int id_staff)
         {
             if (AccountDAO.Instance.InsertAccount(userName, displayName, type, id_staff))
@@ -165,7 +178,9 @@ namespace QuanLyQuanCafe
         }
         #endregion
 
+        //
         #region events
+        //Account
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
             string userName = txbUserName.Text;
@@ -208,10 +223,11 @@ namespace QuanLyQuanCafe
             LoadAccount();
         }
 
-        
+        //Food
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
             foodList.DataSource = SearchFoodByName(txbSearchFoodName.Text);
+            txbSearchFoodName.Text = "";
         }
         private void txbFoodID_TextChanged(object sender, EventArgs e)
         {
@@ -303,6 +319,9 @@ namespace QuanLyQuanCafe
             LoadListFood();
         }
        
+
+
+        //Bill
         private void btnViewBill_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
@@ -380,6 +399,57 @@ namespace QuanLyQuanCafe
             //this.USP_GetListBillByDateForReportTableAdapter.Fill(this.QuanLyQuanCafeDataSet2.USP_GetListBillByDateForReport, dtpkFromDate.Value, dtpkToDate.Value);           
 
             //this.rpViewer.RefreshReport();
+        }
+
+        //Category
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+            if (CategoryDAO.Instance.InsertCategory(name))
+            {
+                MessageBox.Show("Thêm danh mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm danh mục");
+            }
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instance.DeleteCategory(id))
+            {
+                MessageBox.Show("Xóa danh mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa danh mục");
+            }
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instance.UpdateCategory(id, name))
+            {
+                MessageBox.Show("Sửa danh mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa danh mục");
+            }
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListCategory();
         }
     }
 }
