@@ -223,21 +223,30 @@ namespace QuanLyQuanCafe
         }
         private void btnDelFood_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn xóa món này không?"  , "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            Table table = lsvBill.Tag as Table;
+            if (table == null)
             {
-                Table table = lsvBill.Tag as Table;
-                if (table == null)
-                {
-                    MessageBox.Show("Hãy chọn bàn");
-                    return;
-                }
-                int id_bill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
-                int id_food = FoodDAO.Instance.SearchIDfood(lsvBill.SelectedItems[0].SubItems[0].Text);
-                BillInfoDAO.Instance.DeleteBillInfoByFoodIDBillID(id_bill, id_food);
-                ShowBill(table.ID);
-                LoadTable();
+                MessageBox.Show("Hãy chọn bàn");
+                return;
             }
-            
+            if (lsvBill.SelectedItems.Count > 0)//đã chọn món cần xóa
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa món này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+
+                    int id_bill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+                    int id_food = FoodDAO.Instance.SearchIDfood(lsvBill.SelectedItems[0].SubItems[0].Text);
+                    BillInfoDAO.Instance.DeleteBillInfoByFoodIDBillID(id_bill, id_food);
+                    ShowBill(table.ID);
+                    LoadTable();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn món cần xóa");
+            }
+
+
         }
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
@@ -245,15 +254,15 @@ namespace QuanLyQuanCafe
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int discount = (int)nmDisCount.Value;
-
+ 
             double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
             double finalTotalPrice = totalPrice - discount;
 
             if (idBill != -1)
             {
-                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0} với giảm giá {1}.000đ. Tổng thanh toán =  {2}đ ", table.Name, discount,finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0} với giảm giá {1}.000đ. Tổng thanh toán =  {2}.000đ ", table.Name, discount,finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
+                    BillDAO.Instance.CheckOut(idBill, discount, (int)finalTotalPrice, table.ID);
                     ShowBill(table.ID);
 
                     LoadTable();
@@ -262,9 +271,13 @@ namespace QuanLyQuanCafe
         }
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {           
-
             int id1 = (lsvBill.Tag as Table).ID;
             int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+            if ((lsvBill.Tag as Table).Status =="0")
+            {
+                MessageBox.Show("Bàn đã trống, không cần chuyển!");
+                return;
+            }
             if (id1 == id2)
             {
                 MessageBox.Show("Lỗi", "Thông báo");
@@ -277,6 +290,7 @@ namespace QuanLyQuanCafe
                     {
                         TableDAO.Instance.SwitchTableEmpty(id1, id2);
                     }
+                    else // nếu bàn sắp chuyển đã có người ngồi
                     {
                         TableDAO.Instance.SwitchTableNotEmpty(id1, id2);
                     }
