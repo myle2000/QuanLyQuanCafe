@@ -238,6 +238,15 @@ namespace QuanLyQuanCafe
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             string name = txbFoodName.Text;
+            List<Food> FoodList = FoodDAO.Instance.GetListFood();
+            foreach (Food item in FoodList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Món đã tồn tại!");
+                    return;
+                }    
+            }    
             int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
 
@@ -378,6 +387,15 @@ namespace QuanLyQuanCafe
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             string name = txbCategoryName.Text;
+            List<Category> CategoryList = CategoryDAO.Instance.GetListCategory();
+            foreach (Category item in CategoryList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Danh mục đã tồn tại!");
+                    return;
+                }    
+            }    
             if (CategoryDAO.Instance.InsertCategory(name))
             {
                 MessageBox.Show("Thêm danh mục thành công");
@@ -429,13 +447,17 @@ namespace QuanLyQuanCafe
         //Table
         private void btnAddTable_Click(object sender, EventArgs e)
         {
+
             string name = txbTableName.Text;
-            string tt = cbTableStatus.SelectedItem.ToString();
-            /*int status;
-            if (tt == "Trống")
-                status = 0;
-            else
-                status = 1;*/
+            List<Table> TableList = TableDAO.Instance.GetListTable();
+            foreach (Table item in TableList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Tên bàn đã tồn tại!");
+                    return;
+                }
+            }
             int status = Int32.Parse(cbTableStatus.SelectedItem.ToString());
             if (TableDAO.Instance.InsertTable(name, status))
             {
