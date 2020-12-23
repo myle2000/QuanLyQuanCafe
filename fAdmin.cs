@@ -20,10 +20,12 @@ namespace QuanLyQuanCafe
         BindingSource tableList = new BindingSource();
         BindingSource accountList = new BindingSource();
         BindingSource categoryList = new BindingSource();
+        BindingSource staffList = new BindingSource();
         public Account loginAccount;
-        public fAdmin()
+        public fAdmin(Account acc)
         {
             InitializeComponent();
+            this.loginAccount = acc;
             LoadData();
         }
         void LoadData()
@@ -33,6 +35,7 @@ namespace QuanLyQuanCafe
             dtgvCategory.DataSource = categoryList;
             dtgvAccount.DataSource = accountList;
             dtgvTable.DataSource = tableList;
+            dtgvStaff.DataSource = staffList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
@@ -40,13 +43,22 @@ namespace QuanLyQuanCafe
             LoadAccount();
             LoadCategoryIntoCombobox(cbFoodCategory);
             LoadListNameStaff(cbNameStaff);
+            LoadListNameStaff(cbNameStafff);
             LoadListTable();
+            LoadListStaff();
+            LoadCbStatus();
             AddFoodBinding();
             AddAccountBinding();
             AddCategoryBinding();
             AddTableBinding();
+            AddStaffBiding(); 
+        }
+        void LoadCbStatus()
+        {
             cbTableStatus.Items.Add(0);
             cbTableStatus.Items.Add(1);
+            cbStatusStaff.Items.Add(0);
+            cbStatusStaff.Items.Add(1);
         }
 
         void AddAccountBinding()
@@ -54,7 +66,7 @@ namespace QuanLyQuanCafe
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
             numericUpDown1.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
-            txbPass.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "password", true, DataSourceUpdateMode.Never));
+            txbPass.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Password", true, DataSourceUpdateMode.Never));
             cbNameStaff.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Staff_name", true, DataSourceUpdateMode.Never));
         }
         void AddFoodBinding()
@@ -73,6 +85,16 @@ namespace QuanLyQuanCafe
             txbTableID.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "ID", true, DataSourceUpdateMode.Never));
             txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Name", true, DataSourceUpdateMode.Never));
             cbTableStatus.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Status", true, DataSourceUpdateMode.Never));
+        }
+        void AddStaffBiding()
+        {
+            cbNameStafff.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            txbIDStaff.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Id", true, DataSourceUpdateMode.Never));
+            txbPhone.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Sdt", true, DataSourceUpdateMode.Never));
+            txbAddress.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Address", true, DataSourceUpdateMode.Never));
+            txbSex.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Sex", true, DataSourceUpdateMode.Never));
+            txbSalary.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Salary", true, DataSourceUpdateMode.Never));
+            cbStatusStaff.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Status", true, DataSourceUpdateMode.Never));
         }
         void LoadDateTimePickerBill()
         {
@@ -111,15 +133,18 @@ namespace QuanLyQuanCafe
         {
             categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
         }
-
+        void LoadListStaff()
+        {
+            staffList.DataSource = StaffDAO.Instance.GetListStaff();
+        }
         //Account
         void LoadAccount()
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
-        void AddAccount(string userName, string displayName, int type, int id_staff)
+        void AddAccount(string userName, string displayName,string pass, int type,int idstaff)
         {
-            if (AccountDAO.Instance.InsertAccount(userName, displayName, type, id_staff))
+            if (AccountDAO.Instance.InsertAccount(userName, displayName,pass, type,idstaff))
             {
                 MessageBox.Show("Thêm tài khoản thành công");
             }
@@ -127,7 +152,6 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Thêm tài khoản thất bại");
             }
-
             LoadAccount();
         }
         void EditAccount(string userName, string displayName, string pass, int type, int id_staff)
@@ -140,7 +164,6 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Cập nhật tài khoản thất bại");
             }
-
             LoadAccount();
         }
         void DeleteAccount(string userName)
@@ -166,14 +189,13 @@ namespace QuanLyQuanCafe
             string userName = txbUserName.Text;
             string displayName = txbDisplayName.Text;
             int type = (int)numericUpDown1.Value;
+            string pass = txbPass.Text;
             int id_staff = (cbNameStaff.SelectedItem as Staff).Id;
-
-            AddAccount(userName, displayName, type, id_staff);
+            AddAccount(userName, displayName,pass, type,id_staff);
         }
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             string userName = txbUserName.Text;
-
             DeleteAccount(userName);
         }
         private void btnEditAccount_Click(object sender, EventArgs e)
@@ -286,18 +308,19 @@ namespace QuanLyQuanCafe
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbFoodID.Text);
+            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-            if (FoodDAO.Instance.DeleteFood(id))
-            {
-                MessageBox.Show("Xóa món thành công");
-                LoadListFood();
-                if (deleteFood != null)
-                    deleteFood(this, new EventArgs());
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi khi xóa thức ăn");
-            }
+                if (FoodDAO.Instance.DeleteFood(id))
+                {
+                    MessageBox.Show("Xóa món thành công");
+                    LoadListFood();
+                    if (deleteFood != null)
+                        deleteFood(this, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi xóa thức ăn");
+                }
         }
         private void btnShowFood_Click(object sender, EventArgs e)
         {
@@ -410,16 +433,17 @@ namespace QuanLyQuanCafe
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbCategoryID.Text);
+            if (MessageBox.Show("Bạn có chắc muốn xóa danh mục này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-            if (CategoryDAO.Instance.DeleteCategory(id))
-            {
-                MessageBox.Show("Xóa danh mục thành công");
-                LoadListCategory();
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi khi xóa danh mục");
-            }
+                if (CategoryDAO.Instance.DeleteCategory(id))
+                {
+                    MessageBox.Show("Xóa danh mục thành công");
+                    LoadListCategory();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi xóa danh mục");
+                }
         }
 
         private void btnEditCategory_Click(object sender, EventArgs e)
@@ -441,6 +465,12 @@ namespace QuanLyQuanCafe
         private void btnShowCategory_Click(object sender, EventArgs e)
         {
             LoadListCategory();
+        }
+        private void btnSearchCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbFindCategory.Text;
+            categoryList.DataSource = CategoryDAO.Instance.SearchCategoryByName(name);
+            txbFindCategory.Text = "";
         }
 
 
@@ -473,16 +503,17 @@ namespace QuanLyQuanCafe
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbTableID.Text);
+            if (MessageBox.Show("Bạn có chắc muốn xóa bàn này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-            if (TableDAO.Instance.DeleteTable(id))
-            {
-                MessageBox.Show("Xóa bàn thành công");
-                LoadListTable();
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi khi xóa bàn");
-            }
+                if (TableDAO.Instance.DeleteTable(id))
+                {
+                    MessageBox.Show("Xóa bàn thành công");
+                    LoadListTable();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi xóa bàn");
+                }
         }
 
         private void btnEditTable_Click(object sender, EventArgs e)
@@ -490,12 +521,6 @@ namespace QuanLyQuanCafe
             string name = txbTableName.Text;
             int id = Convert.ToInt32(txbTableID.Text);
             int status = Convert.ToInt32(cbTableStatus.SelectedItem.ToString());
-            /*string tt = cbTableStatus.SelectedItem.ToString();
-            int status;
-            if (tt == "Trống")
-                status = 0;
-            else
-                status = 1;*/
             if (TableDAO.Instance.UpdateTable(id, name, status))
             {
                 MessageBox.Show("Sửa thông tin bàn thành công");
@@ -512,6 +537,83 @@ namespace QuanLyQuanCafe
             LoadListTable();
         }
 
-        
+
+        //Staff
+        private void btnDeleteStaff_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbIDStaff.Text);
+            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                if (StaffDAO.Instance.DeleteStaff(id))
+                {
+                    MessageBox.Show("Xóa nhân viên thành công");
+                    LoadListStaff();
+                }
+        }
+
+        private void btnAddStaff_Click(object sender, EventArgs e)
+        {
+            string name = cbNameStafff.Text;
+            List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
+            foreach (Staff item in StaffList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Nhân viên đã tồn tại!");
+                    return;
+                }
+            }
+            string phone = txbPhone.Text;
+            string address = txbAddress.Text;
+            string sex = txbSex.Text;
+            int salary = Int32.Parse(txbSalary.Text);
+            int status = Int32.Parse(cbStatusStaff.SelectedItem.ToString());
+
+            if (StaffDAO.Instance.InsertStaff(name, phone, address, sex, salary, status))
+            {
+                MessageBox.Show("Thêm nhân viên thành công");
+                LoadListStaff();
+            }
+        }
+
+        private void btnEditStaff_Click(object sender, EventArgs e)
+        {
+            string name = cbNameStafff.Text;
+            string phone = txbPhone.Text;
+            string address = txbAddress.Text;
+            string sex = txbSex.Text;
+            int salary = Convert.ToInt32(txbSalary.Text);
+            //int status = Convert.ToInt32(cbStatusStaff.SelectedItem.ToString());
+            int status = Convert.ToInt32(cbStatusStaff.Text);
+            int id = Convert.ToInt32(txbIDStaff.Text);
+
+            if (StaffDAO.Instance.UpdateStaff(id, name, phone, address, sex, salary, status))
+            {
+                MessageBox.Show("Sửa thông tin nhân viên thành công");
+                LoadListStaff();
+            }
+        }
+
+        private void btnLoadStaff_Click(object sender, EventArgs e)
+        {
+            LoadListStaff();
+        }
+
+        private void btnSearchStaff_Click(object sender, EventArgs e)
+        {
+            staffList.DataSource = StaffDAO.Instance.SearchStaffByName(txbFindStaff.Text);
+            txbFindStaff.Text = "";
+        }
+
+        private void btnNhapLai_Click(object sender, EventArgs e)
+        {
+            txbIDStaff.Text = "";
+            txbPass.Text = "";
+            txbPhone.Text = "";
+            txbSalary.Text = "";
+            txbSex.Text = "";
+            cbNameStafff.Text = "";
+            cbStatusStaff.Text = "";
+            txbAddress.Text = "";
+        }
     }
 }

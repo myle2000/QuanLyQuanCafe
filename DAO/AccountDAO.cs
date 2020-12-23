@@ -49,40 +49,38 @@ namespace QuanLyQuanCafe.DAO
             {
                 return new Account(item);
             }
-
             return null;
         }
 
-        public bool InsertAccount(string name, string displayName, int type, int id_staff)
+        public bool InsertAccount(string name, string displayName,string pass, int type,int id)
         {
-            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, password, Type, id_staff )VALUES  ( N'{0}', N'{1}', '{2}', {3}, {4} )", name, displayName,1, type, id_staff);
+            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, password, Type, id_staff )VALUES  ( N'{0}', N'{1}', N'{2}', {3},{4} )", name, displayName,pass, type,id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
         }
 
-        /*public bool UpdateAccount(string name, string displayName, int type)
+        public bool UpdatePassword(string name, string displayName , string newpass )
         {
-            string query = string.Format("UPDATE dbo.Account SET DisplayName = N'{1}', Type = {2} WHERE UserName = N'{0}'", name, displayName, type);
+            string query = string.Format("UPDATE dbo.Account SET DisplayName = N'{1}', password = N'{2}' WHERE UserName = N'{0}'", name, displayName, newpass);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
-        }*/
+        }
 
         public bool DeleteAccount(string name)
         {
-            string query = string.Format("Delete Account where UserName = N'{0}'", name);
+            string query = string.Format("Delete ACCOUNT where UserName = N'{0}'", name);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
-
             return result > 0;
         }
 
-        public bool ResetPassword(string name, string pass)
+        public bool DeleteAccountByID(int Id)
         {
-            string query = string.Format("update account set password = '{0}' where UserName = N'{1}'", pass, name);
+            string query = string.Format("Delete Account where id_staff = N'{0}'", Id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
-
             return result > 0;
         }
+
     }
 }

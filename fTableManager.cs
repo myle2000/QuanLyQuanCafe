@@ -148,7 +148,8 @@ namespace QuanLyQuanCafe
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAdmin f = new fAdmin();
+            Account login = AccountDAO.Instance.GetAccountByUserName(LoginAccount.UserName);
+            fAdmin f = new fAdmin(login);
             f.loginAccount = LoginAccount;
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
@@ -300,5 +301,11 @@ namespace QuanLyQuanCafe
             LoadTable();
         }
         #endregion
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fUser f = new fUser();
+            f.Show();
+        }
     }
 }

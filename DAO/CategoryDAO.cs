@@ -72,5 +72,20 @@ namespace QuanLyQuanCafe.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public List<Category> SearchCategoryByName(string name)
+        {
+
+            List<Category> list = new List<Category>();
+            string query = string.Format("select * from FOOD_CATEGORY where name like N'%{0}%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Category category = new Category(item);
+                list.Add(category);
+            }
+
+            return list;
+        }
     }
 }
