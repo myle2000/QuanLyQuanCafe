@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,34 +65,34 @@
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Staff.cs" />
     <Compile Include="DTO\Table.cs" />
-    <Compile Include="fAccountProfile.cs">
+    <Compile Include="GUI\fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAccountProfile.Designer.cs">
+    <Compile Include="GUI\fAccountProfile.Designer.cs">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin.cs">
+    <Compile Include="GUI\fAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin.Designer.cs">
+    <Compile Include="GUI\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="fLogin.cs">
+    <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fLogin.Designer.cs">
+    <Compile Include="GUI\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="fTableManager.cs">
+    <Compile Include="GUI\fTableManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fTableManager.Designer.cs">
+    <Compile Include="GUI\fTableManager.Designer.cs">
       <DependentUpon>fTableManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="fUser.cs">
+    <Compile Include="GUI\fUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fUser.Designer.cs">
+    <Compile Include="GUI\fUser.Designer.cs">
       <DependentUpon>fUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -101,19 +102,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyQuanCafeDataSet2.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="fAccountProfile.resx">
+    <EmbeddedResource Include="GUI\fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin.resx">
+    <EmbeddedResource Include="GUI\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fLogin.resx">
+    <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fTableManager.resx">
+    <EmbeddedResource Include="GUI\fTableManager.resx">
       <DependentUpon>fTableManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fUser.resx">
+    <EmbeddedResource Include="GUI\fUser.resx">
       <DependentUpon>fUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

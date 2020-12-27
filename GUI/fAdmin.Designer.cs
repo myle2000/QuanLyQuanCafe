@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -126,44 +129,45 @@
             this.btnFristBillPage = new System.Windows.Forms.Button();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tcAdmin = new System.Windows.Forms.TabControl();
-            this.tpReport = new System.Windows.Forms.TabPage();
             this.tpStaff = new System.Windows.Forms.TabPage();
-            this.QuanLyQuanCafeDataSet2 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2();
-            this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
-            this.tableAdapterManager1 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager();
             this.panel30 = new System.Windows.Forms.Panel();
             this.txbFindStaff = new System.Windows.Forms.TextBox();
             this.btnSearchStaff = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
+            this.panel39 = new System.Windows.Forms.Panel();
+            this.cbStatusStaff = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.txbSalary = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel37 = new System.Windows.Forms.Panel();
+            this.txbSex = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
+            this.txbAddress = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.txbPhone = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
+            this.cbNameStafff = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
             this.txbIDStaff = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.btnNhapLai = new System.Windows.Forms.Button();
             this.btnLoadStaff = new System.Windows.Forms.Button();
             this.btnEditStaff = new System.Windows.Forms.Button();
             this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.dtgvStaff = new System.Windows.Forms.DataGridView();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel39 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txbPhone = new System.Windows.Forms.TextBox();
-            this.txbAddress = new System.Windows.Forms.TextBox();
-            this.txbSex = new System.Windows.Forms.TextBox();
-            this.txbSalary = new System.Windows.Forms.TextBox();
-            this.cbStatusStaff = new System.Windows.Forms.ComboBox();
-            this.cbNameStafff = new System.Windows.Forms.ComboBox();
-            this.btnNhapLai = new System.Windows.Forms.Button();
+            this.QuanLyQuanCafeDataSet2 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2();
+            this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
+            this.tableAdapterManager1 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tpWorkShift = new System.Windows.Forms.TabPage();
             this.tpAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -208,19 +212,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tcAdmin.SuspendLayout();
             this.tpStaff.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).BeginInit();
             this.panel30.SuspendLayout();
             this.panel31.SuspendLayout();
+            this.panel39.SuspendLayout();
+            this.panel38.SuspendLayout();
+            this.panel37.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
             this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
-            this.panel37.SuspendLayout();
-            this.panel38.SuspendLayout();
-            this.panel39.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tpAccount
@@ -1139,7 +1144,7 @@
             this.btnViewBill.Name = "btnViewBill";
             this.btnViewBill.Size = new System.Drawing.Size(100, 28);
             this.btnViewBill.TabIndex = 2;
-            this.btnViewBill.Text = "Thống kê";
+            this.btnViewBill.Text = "Xem";
             this.btnViewBill.UseVisualStyleBackColor = true;
             this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
@@ -1248,24 +1253,13 @@
             this.tcAdmin.Controls.Add(this.tpTable);
             this.tcAdmin.Controls.Add(this.tpAccount);
             this.tcAdmin.Controls.Add(this.tpStaff);
-            this.tcAdmin.Controls.Add(this.tpReport);
+            this.tcAdmin.Controls.Add(this.tpWorkShift);
             this.tcAdmin.Location = new System.Drawing.Point(16, 14);
             this.tcAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tcAdmin.Name = "tcAdmin";
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(877, 540);
             this.tcAdmin.TabIndex = 0;
-            // 
-            // tpReport
-            // 
-            this.tpReport.Location = new System.Drawing.Point(4, 25);
-            this.tpReport.Margin = new System.Windows.Forms.Padding(4);
-            this.tpReport.Name = "tpReport";
-            this.tpReport.Padding = new System.Windows.Forms.Padding(4);
-            this.tpReport.Size = new System.Drawing.Size(869, 511);
-            this.tpReport.TabIndex = 5;
-            this.tpReport.Text = "Report";
-            this.tpReport.UseVisualStyleBackColor = true;
             // 
             // tpStaff
             // 
@@ -1280,26 +1274,6 @@
             this.tpStaff.TabIndex = 6;
             this.tpStaff.Text = "Nhân viên";
             this.tpStaff.UseVisualStyleBackColor = true;
-            // 
-            // QuanLyQuanCafeDataSet2
-            // 
-            this.QuanLyQuanCafeDataSet2.DataSetName = "QuanLyQuanCafeDataSet2";
-            this.QuanLyQuanCafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // USP_GetListBillByDateForReportBindingSource
-            // 
-            this.USP_GetListBillByDateForReportBindingSource.DataMember = "USP_GetListBillByDateForReport";
-            this.USP_GetListBillByDateForReportBindingSource.DataSource = this.QuanLyQuanCafeDataSet2;
-            // 
-            // USP_GetListBillByDateForReportTableAdapter
-            // 
-            this.USP_GetListBillByDateForReportTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.Connection = null;
-            this.tableAdapterManager1.UpdateOrder = QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // panel30
             // 
@@ -1345,6 +1319,94 @@
             this.panel31.Size = new System.Drawing.Size(380, 359);
             this.panel31.TabIndex = 6;
             // 
+            // panel39
+            // 
+            this.panel39.Controls.Add(this.cbStatusStaff);
+            this.panel39.Controls.Add(this.label21);
+            this.panel39.Location = new System.Drawing.Point(4, 257);
+            this.panel39.Margin = new System.Windows.Forms.Padding(4);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(372, 42);
+            this.panel39.TabIndex = 6;
+            // 
+            // cbStatusStaff
+            // 
+            this.cbStatusStaff.FormattingEnabled = true;
+            this.cbStatusStaff.Location = new System.Drawing.Point(121, 11);
+            this.cbStatusStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbStatusStaff.Name = "cbStatusStaff";
+            this.cbStatusStaff.Size = new System.Drawing.Size(246, 24);
+            this.cbStatusStaff.TabIndex = 2;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label21.Location = new System.Drawing.Point(4, 11);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(113, 24);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Trạng thái:";
+            // 
+            // panel38
+            // 
+            this.panel38.Controls.Add(this.txbSalary);
+            this.panel38.Controls.Add(this.label20);
+            this.panel38.Location = new System.Drawing.Point(4, 307);
+            this.panel38.Margin = new System.Windows.Forms.Padding(4);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(372, 42);
+            this.panel38.TabIndex = 6;
+            // 
+            // txbSalary
+            // 
+            this.txbSalary.Location = new System.Drawing.Point(121, 11);
+            this.txbSalary.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSalary.Name = "txbSalary";
+            this.txbSalary.Size = new System.Drawing.Size(246, 22);
+            this.txbSalary.TabIndex = 2;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label20.Location = new System.Drawing.Point(4, 11);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 24);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Lương:";
+            // 
+            // panel37
+            // 
+            this.panel37.Controls.Add(this.txbSex);
+            this.panel37.Controls.Add(this.label19);
+            this.panel37.Location = new System.Drawing.Point(4, 207);
+            this.panel37.Margin = new System.Windows.Forms.Padding(4);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(372, 42);
+            this.panel37.TabIndex = 5;
+            // 
+            // txbSex
+            // 
+            this.txbSex.Location = new System.Drawing.Point(121, 11);
+            this.txbSex.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSex.Name = "txbSex";
+            this.txbSex.Size = new System.Drawing.Size(246, 22);
+            this.txbSex.TabIndex = 2;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label19.Location = new System.Drawing.Point(4, 11);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 24);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Giới tính:";
+            // 
             // panel32
             // 
             this.panel32.Controls.Add(this.txbAddress);
@@ -1354,6 +1416,14 @@
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(372, 42);
             this.panel32.TabIndex = 4;
+            // 
+            // txbAddress
+            // 
+            this.txbAddress.Location = new System.Drawing.Point(120, 11);
+            this.txbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txbAddress.Name = "txbAddress";
+            this.txbAddress.Size = new System.Drawing.Size(246, 22);
+            this.txbAddress.TabIndex = 2;
             // 
             // label15
             // 
@@ -1376,6 +1446,14 @@
             this.panel33.Size = new System.Drawing.Size(372, 46);
             this.panel33.TabIndex = 3;
             // 
+            // txbPhone
+            // 
+            this.txbPhone.Location = new System.Drawing.Point(120, 11);
+            this.txbPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPhone.Name = "txbPhone";
+            this.txbPhone.Size = new System.Drawing.Size(246, 22);
+            this.txbPhone.TabIndex = 2;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -1396,6 +1474,15 @@
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(372, 41);
             this.panel34.TabIndex = 2;
+            // 
+            // cbNameStafff
+            // 
+            this.cbNameStafff.FormattingEnabled = true;
+            this.cbNameStafff.Location = new System.Drawing.Point(121, 11);
+            this.cbNameStafff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbNameStafff.Name = "cbNameStafff";
+            this.cbNameStafff.Size = new System.Drawing.Size(246, 24);
+            this.cbNameStafff.TabIndex = 2;
             // 
             // label17
             // 
@@ -1451,6 +1538,17 @@
             this.panel36.Size = new System.Drawing.Size(466, 64);
             this.panel36.TabIndex = 5;
             // 
+            // btnNhapLai
+            // 
+            this.btnNhapLai.Location = new System.Drawing.Point(371, 3);
+            this.btnNhapLai.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNhapLai.Name = "btnNhapLai";
+            this.btnNhapLai.Size = new System.Drawing.Size(82, 57);
+            this.btnNhapLai.TabIndex = 4;
+            this.btnNhapLai.Text = "Nhập";
+            this.btnNhapLai.UseVisualStyleBackColor = true;
+            this.btnNhapLai.Click += new System.EventHandler(this.btnNhapLai_Click);
+            // 
             // btnLoadStaff
             // 
             this.btnLoadStaff.Location = new System.Drawing.Point(281, 4);
@@ -1505,135 +1603,58 @@
             this.dtgvStaff.Size = new System.Drawing.Size(466, 428);
             this.dtgvStaff.TabIndex = 4;
             // 
-            // panel37
+            // QuanLyQuanCafeDataSet2
             // 
-            this.panel37.Controls.Add(this.txbSex);
-            this.panel37.Controls.Add(this.label19);
-            this.panel37.Location = new System.Drawing.Point(4, 207);
-            this.panel37.Margin = new System.Windows.Forms.Padding(4);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(372, 42);
-            this.panel37.TabIndex = 5;
+            this.QuanLyQuanCafeDataSet2.DataSetName = "QuanLyQuanCafeDataSet2";
+            this.QuanLyQuanCafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label19
+            // USP_GetListBillByDateForReportBindingSource
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label19.Location = new System.Drawing.Point(4, 11);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(100, 24);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Giới tính:";
+            this.USP_GetListBillByDateForReportBindingSource.DataMember = "USP_GetListBillByDateForReport";
+            this.USP_GetListBillByDateForReportBindingSource.DataSource = this.QuanLyQuanCafeDataSet2;
             // 
-            // panel38
+            // USP_GetListBillByDateForReportTableAdapter
             // 
-            this.panel38.Controls.Add(this.txbSalary);
-            this.panel38.Controls.Add(this.label20);
-            this.panel38.Location = new System.Drawing.Point(4, 307);
-            this.panel38.Margin = new System.Windows.Forms.Padding(4);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(372, 42);
-            this.panel38.TabIndex = 6;
+            this.USP_GetListBillByDateForReportTableAdapter.ClearBeforeFill = true;
             // 
-            // label20
+            // tableAdapterManager1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label20.Location = new System.Drawing.Point(4, 11);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 24);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Lương:";
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.UpdateOrder = QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // panel39
+            // chart1
             // 
-            this.panel39.Controls.Add(this.cbStatusStaff);
-            this.panel39.Controls.Add(this.label21);
-            this.panel39.Location = new System.Drawing.Point(4, 257);
-            this.panel39.Margin = new System.Windows.Forms.Padding(4);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(372, 42);
-            this.panel39.TabIndex = 6;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(877, 0);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
-            // label21
+            // tpWorkShift
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label21.Location = new System.Drawing.Point(4, 11);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(113, 24);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Trạng thái:";
-            // 
-            // txbPhone
-            // 
-            this.txbPhone.Location = new System.Drawing.Point(120, 11);
-            this.txbPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.txbPhone.Name = "txbPhone";
-            this.txbPhone.Size = new System.Drawing.Size(246, 22);
-            this.txbPhone.TabIndex = 2;
-            // 
-            // txbAddress
-            // 
-            this.txbAddress.Location = new System.Drawing.Point(120, 11);
-            this.txbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAddress.Name = "txbAddress";
-            this.txbAddress.Size = new System.Drawing.Size(246, 22);
-            this.txbAddress.TabIndex = 2;
-            // 
-            // txbSex
-            // 
-            this.txbSex.Location = new System.Drawing.Point(121, 11);
-            this.txbSex.Margin = new System.Windows.Forms.Padding(4);
-            this.txbSex.Name = "txbSex";
-            this.txbSex.Size = new System.Drawing.Size(246, 22);
-            this.txbSex.TabIndex = 2;
-            // 
-            // txbSalary
-            // 
-            this.txbSalary.Location = new System.Drawing.Point(121, 11);
-            this.txbSalary.Margin = new System.Windows.Forms.Padding(4);
-            this.txbSalary.Name = "txbSalary";
-            this.txbSalary.Size = new System.Drawing.Size(246, 22);
-            this.txbSalary.TabIndex = 2;
-            // 
-            // cbStatusStaff
-            // 
-            this.cbStatusStaff.FormattingEnabled = true;
-            this.cbStatusStaff.Location = new System.Drawing.Point(121, 11);
-            this.cbStatusStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbStatusStaff.Name = "cbStatusStaff";
-            this.cbStatusStaff.Size = new System.Drawing.Size(246, 24);
-            this.cbStatusStaff.TabIndex = 2;
-            // 
-            // cbNameStafff
-            // 
-            this.cbNameStafff.FormattingEnabled = true;
-            this.cbNameStafff.Location = new System.Drawing.Point(121, 11);
-            this.cbNameStafff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbNameStafff.Name = "cbNameStafff";
-            this.cbNameStafff.Size = new System.Drawing.Size(246, 24);
-            this.cbNameStafff.TabIndex = 2;
-            // 
-            // btnNhapLai
-            // 
-            this.btnNhapLai.Location = new System.Drawing.Point(371, 3);
-            this.btnNhapLai.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNhapLai.Name = "btnNhapLai";
-            this.btnNhapLai.Size = new System.Drawing.Size(82, 57);
-            this.btnNhapLai.TabIndex = 4;
-            this.btnNhapLai.Text = "Nhập";
-            this.btnNhapLai.UseVisualStyleBackColor = true;
-            this.btnNhapLai.Click += new System.EventHandler(this.btnNhapLai_Click);
+            this.tpWorkShift.Location = new System.Drawing.Point(4, 25);
+            this.tpWorkShift.Name = "tpWorkShift";
+            this.tpWorkShift.Size = new System.Drawing.Size(869, 511);
+            this.tpWorkShift.TabIndex = 7;
+            this.tpWorkShift.Text = "Ca làm";
+            this.tpWorkShift.UseVisualStyleBackColor = true;
             // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 570);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.tcAdmin);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fAdmin";
@@ -1701,11 +1722,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tcAdmin.ResumeLayout(false);
             this.tpStaff.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).EndInit();
             this.panel30.ResumeLayout(false);
             this.panel30.PerformLayout();
             this.panel31.ResumeLayout(false);
+            this.panel39.ResumeLayout(false);
+            this.panel39.PerformLayout();
+            this.panel38.ResumeLayout(false);
+            this.panel38.PerformLayout();
+            this.panel37.ResumeLayout(false);
+            this.panel37.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
@@ -1716,12 +1741,9 @@
             this.panel35.PerformLayout();
             this.panel36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).EndInit();
-            this.panel37.ResumeLayout(false);
-            this.panel37.PerformLayout();
-            this.panel38.ResumeLayout(false);
-            this.panel38.PerformLayout();
-            this.panel39.ResumeLayout(false);
-            this.panel39.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanLyQuanCafeDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1815,7 +1837,6 @@
         private System.Windows.Forms.Button btnFristBillPage;
         private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.TabControl tcAdmin;
-        private System.Windows.Forms.TabPage tpReport;
        // private Microsoft.Reporting.WinForms.ReportViewer rpViewer;
         private System.Windows.Forms.BindingSource USP_GetTableListBindingSource;
         private System.Windows.Forms.BindingSource USP_GetListBillByDateForReportBindingSource;
@@ -1865,5 +1886,7 @@
         private System.Windows.Forms.Button btnAddStaff;
         private System.Windows.Forms.DataGridView dtgvStaff;
         private System.Windows.Forms.Button btnNhapLai;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TabPage tpWorkShift;
     }
 }

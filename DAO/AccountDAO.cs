@@ -40,6 +40,21 @@ namespace QuanLyQuanCafe.DAO
         {
             return DataProvider.Instance.ExecuteQuery("SELECT username, displayname, password, type, id_staff, name as Staff_name  FROM dbo.Account, staff where staff.id=account.id_staff");
         }
+        public List<Account> GetListAccountt()
+        {
+            List<Account> list = new List<Account>();
+
+            string query = "select * from Account";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Account account = new Account(item);
+                list.Add(account);
+            }
+            return list;
+        }
 
         public Account GetAccountByUserName(string userName)
         {

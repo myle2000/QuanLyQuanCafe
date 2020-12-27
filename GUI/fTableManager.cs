@@ -37,7 +37,8 @@ namespace QuanLyQuanCafe
 
         void ChangeAccount(int type)
         {
-            adminToolStripMenuItem.Enabled = type == 1;
+            adminToolStripMenuItem.Visible = type == 1;
+            userToolStripMenuItem.Visible = type == 0;
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName +")";
         }
         void LoadCategory()
@@ -136,9 +137,11 @@ namespace QuanLyQuanCafe
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             fAccountProfile f = new fAccountProfile(LoginAccount);
             f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
+            this.Show();
         }
 
         void f_UpdateAccount(object sender, AccountEvent e)
@@ -148,13 +151,12 @@ namespace QuanLyQuanCafe
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Account login = AccountDAO.Instance.GetAccountByUserName(LoginAccount.UserName);
             fAdmin f = new fAdmin(login);
             f.loginAccount = LoginAccount;
-            f.InsertFood += f_InsertFood;
-            f.DeleteFood += f_DeleteFood;
-            f.UpdateFood += f_UpdateFood;
             f.ShowDialog();
+            this.Show();
         }
 
         void f_UpdateFood(object sender, EventArgs e)
@@ -304,8 +306,15 @@ namespace QuanLyQuanCafe
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             fUser f = new fUser();
-            f.Show();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

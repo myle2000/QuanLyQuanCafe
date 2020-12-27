@@ -186,7 +186,21 @@ namespace QuanLyQuanCafe
         }
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
+            if (txbUserName.Text == "" ||txbPass.Text=="")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
+            }
             string userName = txbUserName.Text;
+            List<Account> AccountList = AccountDAO.Instance.GetListAccountt();
+            foreach (Account item in AccountList)
+            {
+                if (item.UserName == userName)
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại!");
+                    return;
+                }
+            }
+            
             string displayName = txbDisplayName.Text;
             int type = (int)numericUpDown1.Value;
             string pass = txbPass.Text;
@@ -196,7 +210,20 @@ namespace QuanLyQuanCafe
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             string userName = txbUserName.Text;
-            DeleteAccount(userName);
+            List<Account> AccountList = AccountDAO.Instance.GetListAccountt();
+            foreach (Account item in AccountList)
+            {
+                if (item.UserName == userName)
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại!");
+                    return;
+                }
+            }
+            try
+            {
+                DeleteAccount(userName);
+            }
+            catch { }
         }
         private void btnEditAccount_Click(object sender, EventArgs e)
         {
@@ -259,6 +286,40 @@ namespace QuanLyQuanCafe
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
+            if (txbFoodName.Text == "" || cbFoodCategory.SelectedItem.ToString() == "" || nmFoodPrice.Value == 0)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            }
+            else
+            {
+                string name = txbFoodName.Text;
+                List<Food> FoodList = FoodDAO.Instance.GetListFood();
+                foreach (Food item in FoodList)
+                {
+                    if (item.Name == name)
+                    {
+                        MessageBox.Show("Món đã tồn tại!");
+                        return;
+                    }
+                }
+                int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+                float price = (float)nmFoodPrice.Value;
+
+                if (FoodDAO.Instance.InsertFood(name, categoryID, price))
+                {
+                    MessageBox.Show("Thêm món thành công");
+                    LoadListFood();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi thêm món");
+                }
+            }
+                          
+        }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
             string name = txbFoodName.Text;
             List<Food> FoodList = FoodDAO.Instance.GetListFood();
             foreach (Food item in FoodList)
@@ -267,27 +328,8 @@ namespace QuanLyQuanCafe
                 {
                     MessageBox.Show("Món đã tồn tại!");
                     return;
-                }    
-            }    
-            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
-            float price = (float)nmFoodPrice.Value;
-
-            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
-            {
-                MessageBox.Show("Thêm món thành công");
-                LoadListFood();
-                if (insertFood != null)
-                    insertFood(this, new EventArgs());
+                }
             }
-            else
-            {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
-            }
-        }
-
-        private void btnEditFood_Click(object sender, EventArgs e)
-        {
-            string name = txbFoodName.Text;
             int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
             int id = Convert.ToInt32(txbFoodID.Text);
@@ -296,56 +338,33 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Sửa món thành công");
                 LoadListFood();
-                if (updateFood != null)
-                    updateFood(this, new EventArgs());
             }
             else
             {
-                MessageBox.Show("Có lỗi khi sửa thức ăn");
+                MessageBox.Show("Có lỗi khi sửa món");
             }
         }
 
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbFoodID.Text);
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc muốn xóa món này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
                 if (FoodDAO.Instance.DeleteFood(id))
                 {
                     MessageBox.Show("Xóa món thành công");
                     LoadListFood();
-                    if (deleteFood != null)
-                        deleteFood(this, new EventArgs());
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi khi xóa thức ăn");
+                    MessageBox.Show("Có lỗi khi xóa món");
                 }
         }
         private void btnShowFood_Click(object sender, EventArgs e)
         {
             LoadListFood();
         }
-        private event EventHandler insertFood;
-        public event EventHandler InsertFood
-        {
-            add { insertFood += value; }
-            remove { insertFood -= value; }
-        }
-
-        private event EventHandler deleteFood;
-        public event EventHandler DeleteFood
-        {
-            add { deleteFood += value; }
-            remove { deleteFood -= value; }
-        }
-
-        private event EventHandler updateFood;
-        public event EventHandler UpdateFood
-        {
-            add { updateFood += value; }
-            remove { updateFood -= value; }
-        }
+        
 
 
 
@@ -401,7 +420,6 @@ namespace QuanLyQuanCafe
         {
             // TODO: This line of code loads data into the 'QuanLyQuanCafeDataSet2.USP_GetListBillByDateForReport' table. You can move, or remove it, as needed.
             //this.USP_GetListBillByDateForReportTableAdapter.Fill(this.QuanLyQuanCafeDataSet2.USP_GetListBillByDateForReport, dtpkFromDate.Value, dtpkToDate.Value);           
-
             //this.rpViewer.RefreshReport();
         }
 
@@ -409,6 +427,11 @@ namespace QuanLyQuanCafe
         //Category
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
+            if ( txbCategoryName.Text=="")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }    
             string name = txbCategoryName.Text;
             List<Category> CategoryList = CategoryDAO.Instance.GetListCategory();
             foreach (Category item in CategoryList)
@@ -432,23 +455,36 @@ namespace QuanLyQuanCafe
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txbCategoryID.Text);
-            if (MessageBox.Show("Bạn có chắc muốn xóa danh mục này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            try
+            {
+                int id = Convert.ToInt32(txbCategoryID.Text);
+                if (MessageBox.Show("Bạn có chắc muốn xóa danh mục này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-                if (CategoryDAO.Instance.DeleteCategory(id))
-                {
-                    MessageBox.Show("Xóa danh mục thành công");
-                    LoadListCategory();
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi khi xóa danh mục");
-                }
+                    if (CategoryDAO.Instance.DeleteCategory(id))
+                    {
+                        MessageBox.Show("Xóa danh mục thành công");
+                        LoadListCategory();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi khi xóa danh mục");
+                    }
+            }
+            catch { }
         }
 
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
             string name = txbCategoryName.Text;
+            List<Category> CategoryList = CategoryDAO.Instance.GetListCategory();
+            foreach (Category item in CategoryList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Danh mục đã tồn tại!");
+                    return;
+                }
+            }
             int id = Convert.ToInt32(txbCategoryID.Text);
 
             if (CategoryDAO.Instance.UpdateCategory(id, name))
@@ -477,7 +513,11 @@ namespace QuanLyQuanCafe
         //Table
         private void btnAddTable_Click(object sender, EventArgs e)
         {
-
+            if (txbTableName.Text=="")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }    
             string name = txbTableName.Text;
             List<Table> TableList = TableDAO.Instance.GetListTable();
             foreach (Table item in TableList)
@@ -502,18 +542,22 @@ namespace QuanLyQuanCafe
 
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txbTableID.Text);
-            if (MessageBox.Show("Bạn có chắc muốn xóa bàn này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            try
+            {
+                int id = Convert.ToInt32(txbTableID.Text);
+                if (MessageBox.Show("Bạn có chắc muốn xóa bàn này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-                if (TableDAO.Instance.DeleteTable(id))
-                {
-                    MessageBox.Show("Xóa bàn thành công");
-                    LoadListTable();
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi khi xóa bàn");
-                }
+                    if (TableDAO.Instance.DeleteTable(id))
+                    {
+                        MessageBox.Show("Xóa bàn thành công");
+                        LoadListTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi khi xóa bàn");
+                    }
+            }
+            catch { }
         }
 
         private void btnEditTable_Click(object sender, EventArgs e)
@@ -541,18 +585,23 @@ namespace QuanLyQuanCafe
         //Staff
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txbIDStaff.Text);
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
-                if (StaffDAO.Instance.DeleteStaff(id))
-                {
-                    MessageBox.Show("Xóa nhân viên thành công");
-                    LoadListStaff();
-                }
+            try
+            {
+                int id = Convert.ToInt32(txbIDStaff.Text);
+                if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                    if (StaffDAO.Instance.DeleteStaff(id))
+                    {
+                        MessageBox.Show("Xóa nhân viên thành công");
+                        LoadListStaff();
+                    }
+            }
+            catch { }
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             string name = cbNameStafff.Text;
+            string sdt = txbPhone.Text;
             List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
             foreach (Staff item in StaffList)
             {
@@ -561,6 +610,11 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Nhân viên đã tồn tại!");
                     return;
                 }
+                if (item.Sdt==sdt)
+                {
+                    MessageBox.Show("Số điện thoại này đã có chủ!");
+                    return;
+                }    
             }
             string phone = txbPhone.Text;
             string address = txbAddress.Text;
@@ -582,7 +636,20 @@ namespace QuanLyQuanCafe
             string address = txbAddress.Text;
             string sex = txbSex.Text;
             int salary = Convert.ToInt32(txbSalary.Text);
-            //int status = Convert.ToInt32(cbStatusStaff.SelectedItem.ToString());
+            List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
+            foreach (Staff item in StaffList)
+            {
+                if (item.Name == name)
+                {
+                    MessageBox.Show("Nhân viên đã tồn tại!");
+                    return;
+                }
+                if (item.Sdt == phone)
+                {
+                    MessageBox.Show("Số điện thoại này đã có chủ!");
+                    return;
+                }
+            }
             int status = Convert.ToInt32(cbStatusStaff.Text);
             int id = Convert.ToInt32(txbIDStaff.Text);
 
@@ -614,6 +681,11 @@ namespace QuanLyQuanCafe
             cbNameStafff.Text = "";
             cbStatusStaff.Text = "";
             txbAddress.Text = "";
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

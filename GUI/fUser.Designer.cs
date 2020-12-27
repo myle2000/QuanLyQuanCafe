@@ -30,18 +30,6 @@ namespace QuanLyQuanCafe
         private void InitializeComponent()
         {
             this.tcAdmin = new System.Windows.Forms.TabControl();
-            this.tpBill = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnViewBill = new System.Windows.Forms.Button();
-            this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txbPageBill = new System.Windows.Forms.TextBox();
-            this.btnNextBillPage = new System.Windows.Forms.Button();
-            this.btnPrevioursBillPage = new System.Windows.Forms.Button();
-            this.btnLastBillPage = new System.Windows.Forms.Button();
-            this.btnFristBillPage = new System.Windows.Forms.Button();
-            this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbSearchFoodName = new System.Windows.Forms.TextBox();
@@ -75,10 +63,6 @@ namespace QuanLyQuanCafe
             this.panel18 = new System.Windows.Forms.Panel();
             this.dtgvCategory = new System.Windows.Forms.DataGridView();
             this.tcAdmin.SuspendLayout();
-            this.tpBill.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tpFood.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -100,7 +84,6 @@ namespace QuanLyQuanCafe
             // 
             // tcAdmin
             // 
-            this.tcAdmin.Controls.Add(this.tpBill);
             this.tcAdmin.Controls.Add(this.tpFood);
             this.tcAdmin.Controls.Add(this.tbFoodCategory);
             this.tcAdmin.Location = new System.Drawing.Point(13, 13);
@@ -109,132 +92,6 @@ namespace QuanLyQuanCafe
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(877, 540);
             this.tcAdmin.TabIndex = 1;
-            // 
-            // tpBill
-            // 
-            this.tpBill.Controls.Add(this.panel2);
-            this.tpBill.Controls.Add(this.panel1);
-            this.tpBill.Location = new System.Drawing.Point(4, 25);
-            this.tpBill.Margin = new System.Windows.Forms.Padding(4);
-            this.tpBill.Name = "tpBill";
-            this.tpBill.Padding = new System.Windows.Forms.Padding(4);
-            this.tpBill.Size = new System.Drawing.Size(869, 511);
-            this.tpBill.TabIndex = 0;
-            this.tpBill.Text = "Doanh thu";
-            this.tpBill.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnViewBill);
-            this.panel2.Controls.Add(this.dtpkToDate);
-            this.panel2.Controls.Add(this.dtpkFromDate);
-            this.panel2.Location = new System.Drawing.Point(8, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(851, 32);
-            this.panel2.TabIndex = 1;
-            // 
-            // btnViewBill
-            // 
-            this.btnViewBill.Location = new System.Drawing.Point(376, 0);
-            this.btnViewBill.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewBill.Name = "btnViewBill";
-            this.btnViewBill.Size = new System.Drawing.Size(100, 28);
-            this.btnViewBill.TabIndex = 2;
-            this.btnViewBill.Text = "Thống kê";
-            this.btnViewBill.UseVisualStyleBackColor = true;
-            // 
-            // dtpkToDate
-            // 
-            this.dtpkToDate.Location = new System.Drawing.Point(580, 4);
-            this.dtpkToDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpkToDate.Name = "dtpkToDate";
-            this.dtpkToDate.Size = new System.Drawing.Size(265, 22);
-            this.dtpkToDate.TabIndex = 1;
-            // 
-            // dtpkFromDate
-            // 
-            this.dtpkFromDate.Location = new System.Drawing.Point(4, 4);
-            this.dtpkFromDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpkFromDate.Name = "dtpkFromDate";
-            this.dtpkFromDate.Size = new System.Drawing.Size(265, 22);
-            this.dtpkFromDate.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txbPageBill);
-            this.panel1.Controls.Add(this.btnNextBillPage);
-            this.panel1.Controls.Add(this.btnPrevioursBillPage);
-            this.panel1.Controls.Add(this.btnLastBillPage);
-            this.panel1.Controls.Add(this.btnFristBillPage);
-            this.panel1.Controls.Add(this.dtgvBill);
-            this.panel1.Location = new System.Drawing.Point(8, 46);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(851, 454);
-            this.panel1.TabIndex = 0;
-            // 
-            // txbPageBill
-            // 
-            this.txbPageBill.Location = new System.Drawing.Point(376, 422);
-            this.txbPageBill.Margin = new System.Windows.Forms.Padding(4);
-            this.txbPageBill.Name = "txbPageBill";
-            this.txbPageBill.ReadOnly = true;
-            this.txbPageBill.Size = new System.Drawing.Size(98, 22);
-            this.txbPageBill.TabIndex = 5;
-            this.txbPageBill.Text = "1";
-            this.txbPageBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnNextBillPage
-            // 
-            this.btnNextBillPage.Location = new System.Drawing.Point(638, 422);
-            this.btnNextBillPage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNextBillPage.Name = "btnNextBillPage";
-            this.btnNextBillPage.Size = new System.Drawing.Size(100, 28);
-            this.btnNextBillPage.TabIndex = 4;
-            this.btnNextBillPage.Text = "Next";
-            this.btnNextBillPage.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevioursBillPage
-            // 
-            this.btnPrevioursBillPage.Location = new System.Drawing.Point(112, 422);
-            this.btnPrevioursBillPage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrevioursBillPage.Name = "btnPrevioursBillPage";
-            this.btnPrevioursBillPage.Size = new System.Drawing.Size(100, 28);
-            this.btnPrevioursBillPage.TabIndex = 3;
-            this.btnPrevioursBillPage.Text = "Previours";
-            this.btnPrevioursBillPage.UseVisualStyleBackColor = true;
-            // 
-            // btnLastBillPage
-            // 
-            this.btnLastBillPage.Location = new System.Drawing.Point(747, 423);
-            this.btnLastBillPage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLastBillPage.Name = "btnLastBillPage";
-            this.btnLastBillPage.Size = new System.Drawing.Size(100, 28);
-            this.btnLastBillPage.TabIndex = 2;
-            this.btnLastBillPage.Text = "Last";
-            this.btnLastBillPage.UseVisualStyleBackColor = true;
-            // 
-            // btnFristBillPage
-            // 
-            this.btnFristBillPage.Location = new System.Drawing.Point(4, 422);
-            this.btnFristBillPage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFristBillPage.Name = "btnFristBillPage";
-            this.btnFristBillPage.Size = new System.Drawing.Size(100, 28);
-            this.btnFristBillPage.TabIndex = 1;
-            this.btnFristBillPage.Text = "First";
-            this.btnFristBillPage.UseVisualStyleBackColor = true;
-            // 
-            // dtgvBill
-            // 
-            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Location = new System.Drawing.Point(4, 4);
-            this.dtgvBill.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvBill.Name = "dtgvBill";
-            this.dtgvBill.RowHeadersWidth = 62;
-            this.dtgvBill.Size = new System.Drawing.Size(843, 412);
-            this.dtgvBill.TabIndex = 0;
             // 
             // tpFood
             // 
@@ -571,14 +428,10 @@ namespace QuanLyQuanCafe
             this.ClientSize = new System.Drawing.Size(902, 561);
             this.Controls.Add(this.tcAdmin);
             this.Name = "fUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fUser";
             this.Load += new System.EventHandler(this.fUser_Load);
             this.tcAdmin.ResumeLayout(false);
-            this.tpBill.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tpFood.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -611,18 +464,6 @@ namespace QuanLyQuanCafe
         #endregion
 
         private System.Windows.Forms.TabControl tcAdmin;
-        private System.Windows.Forms.TabPage tpBill;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnViewBill;
-        private System.Windows.Forms.DateTimePicker dtpkToDate;
-        private System.Windows.Forms.DateTimePicker dtpkFromDate;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txbPageBill;
-        private System.Windows.Forms.Button btnNextBillPage;
-        private System.Windows.Forms.Button btnPrevioursBillPage;
-        private System.Windows.Forms.Button btnLastBillPage;
-        private System.Windows.Forms.Button btnFristBillPage;
-        private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.TabPage tpFood;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txbSearchFoodName;

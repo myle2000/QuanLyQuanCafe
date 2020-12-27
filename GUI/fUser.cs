@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe
         public fUser()
         {
             InitializeComponent();
-
+            LoadData();
         }
 
         private void fUser_Load(object sender, EventArgs e)
@@ -29,8 +29,6 @@ namespace QuanLyQuanCafe
         {
             dtgvFood.DataSource = foodList;
             dtgvCategory.DataSource = categoryList;
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
             LoadListCategory();
             LoadCategoryIntoCombobox(cbFoodCategory);
@@ -48,16 +46,7 @@ namespace QuanLyQuanCafe
             txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
             txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
         }
-        void LoadDateTimePickerBill()
-        {
-            DateTime today = DateTime.Now;
-            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
-            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
-        }
-        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
-        {
-            dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
-        }
+        
 
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
