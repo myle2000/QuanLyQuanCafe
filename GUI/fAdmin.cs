@@ -211,14 +211,6 @@ namespace QuanLyQuanCafe
         {
             string userName = txbUserName.Text;
             List<Account> AccountList = AccountDAO.Instance.GetListAccountt();
-            foreach (Account item in AccountList)
-            {
-                if (item.UserName == userName)
-                {
-                    MessageBox.Show("Tài khoản đã tồn tại!");
-                    return;
-                }
-            }
             try
             {
                 DeleteAccount(userName);
@@ -321,15 +313,6 @@ namespace QuanLyQuanCafe
         private void btnEditFood_Click(object sender, EventArgs e)
         {
             string name = txbFoodName.Text;
-            List<Food> FoodList = FoodDAO.Instance.GetListFood();
-            foreach (Food item in FoodList)
-            {
-                if (item.Name == name)
-                {
-                    MessageBox.Show("Món đã tồn tại!");
-                    return;
-                }
-            }
             int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
             int id = Convert.ToInt32(txbFoodID.Text);
@@ -585,8 +568,6 @@ namespace QuanLyQuanCafe
         //Staff
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
-            try
-            {
                 int id = Convert.ToInt32(txbIDStaff.Text);
                 if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                     if (StaffDAO.Instance.DeleteStaff(id))
@@ -594,8 +575,6 @@ namespace QuanLyQuanCafe
                         MessageBox.Show("Xóa nhân viên thành công");
                         LoadListStaff();
                     }
-            }
-            catch { }
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)
@@ -637,19 +616,6 @@ namespace QuanLyQuanCafe
             string sex = txbSex.Text;
             int salary = Convert.ToInt32(txbSalary.Text);
             List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
-            foreach (Staff item in StaffList)
-            {
-                if (item.Name == name)
-                {
-                    MessageBox.Show("Nhân viên đã tồn tại!");
-                    return;
-                }
-                if (item.Sdt == phone)
-                {
-                    MessageBox.Show("Số điện thoại này đã có chủ!");
-                    return;
-                }
-            }
             int status = Convert.ToInt32(cbStatusStaff.Text);
             int id = Convert.ToInt32(txbIDStaff.Text);
 

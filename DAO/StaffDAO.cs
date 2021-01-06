@@ -68,7 +68,7 @@ namespace QuanLyQuanCafe.DAO
                 AccountDAO.Instance.DeleteAccountByID(idStaff);
             }
             catch { }
-            string query = string.Format("Delete STAFF where id = {0}", idStaff);
+            string query = string.Format("Delete STAFF where id = N'{0}'", idStaff);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
