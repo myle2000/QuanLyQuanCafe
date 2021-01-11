@@ -243,7 +243,7 @@
             this.panel23.Controls.Add(this.panel25);
             this.panel23.Controls.Add(this.panel26);
             this.panel23.Controls.Add(this.panel27);
-            this.panel23.Location = new System.Drawing.Point(720, 119);
+            this.panel23.Location = new System.Drawing.Point(919, 119);
             this.panel23.Margin = new System.Windows.Forms.Padding(6);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(570, 666);
@@ -409,15 +409,15 @@
             this.panel28.Location = new System.Drawing.Point(10, 8);
             this.panel28.Margin = new System.Windows.Forms.Padding(6);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(699, 100);
+            this.panel28.Size = new System.Drawing.Size(888, 100);
             this.panel28.TabIndex = 5;
             // 
             // btnNhap
             // 
-            this.btnNhap.Location = new System.Drawing.Point(492, 6);
+            this.btnNhap.Location = new System.Drawing.Point(718, 25);
             this.btnNhap.Margin = new System.Windows.Forms.Padding(6);
             this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(150, 89);
+            this.btnNhap.Size = new System.Drawing.Size(150, 50);
             this.btnNhap.TabIndex = 3;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.UseVisualStyleBackColor = true;
@@ -425,10 +425,10 @@
             // 
             // btnEditAccount
             // 
-            this.btnEditAccount.Location = new System.Drawing.Point(330, 6);
+            this.btnEditAccount.Location = new System.Drawing.Point(512, 25);
             this.btnEditAccount.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(150, 89);
+            this.btnEditAccount.Size = new System.Drawing.Size(150, 50);
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
@@ -436,10 +436,10 @@
             // 
             // btnDeleteAccount
             // 
-            this.btnDeleteAccount.Location = new System.Drawing.Point(168, 6);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(269, 25);
             this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(150, 89);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(150, 52);
             this.btnDeleteAccount.TabIndex = 1;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
@@ -447,10 +447,10 @@
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.Location = new System.Drawing.Point(6, 6);
+            this.btnAddAccount.Location = new System.Drawing.Point(38, 25);
             this.btnAddAccount.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(150, 89);
+            this.btnAddAccount.Size = new System.Drawing.Size(150, 52);
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
@@ -462,7 +462,7 @@
             this.panel29.Location = new System.Drawing.Point(10, 119);
             this.panel29.Margin = new System.Windows.Forms.Padding(6);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(699, 666);
+            this.panel29.Size = new System.Drawing.Size(888, 666);
             this.panel29.TabIndex = 4;
             // 
             // dtgvAccount
@@ -472,7 +472,7 @@
             this.dtgvAccount.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowHeadersWidth = 62;
-            this.dtgvAccount.Size = new System.Drawing.Size(686, 653);
+            this.dtgvAccount.Size = new System.Drawing.Size(876, 653);
             this.dtgvAccount.TabIndex = 0;
             // 
             // tpTable
@@ -494,7 +494,7 @@
             this.panel11.Controls.Add(this.panel21);
             this.panel11.Controls.Add(this.panel13);
             this.panel11.Controls.Add(this.panel14);
-            this.panel11.Location = new System.Drawing.Point(720, 119);
+            this.panel11.Location = new System.Drawing.Point(904, 119);
             this.panel11.Margin = new System.Windows.Forms.Padding(6);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(570, 666);
@@ -598,15 +598,15 @@
             this.panel19.Location = new System.Drawing.Point(10, 8);
             this.panel19.Margin = new System.Windows.Forms.Padding(6);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(699, 100);
+            this.panel19.Size = new System.Drawing.Size(882, 100);
             this.panel19.TabIndex = 8;
             // 
             // btnShowTable
             // 
-            this.btnShowTable.Location = new System.Drawing.Point(492, 6);
+            this.btnShowTable.Location = new System.Drawing.Point(714, 23);
             this.btnShowTable.Margin = new System.Windows.Forms.Padding(6);
             this.btnShowTable.Name = "btnShowTable";
-            this.btnShowTable.Size = new System.Drawing.Size(150, 89);
+            this.btnShowTable.Size = new System.Drawing.Size(150, 55);
             this.btnShowTable.TabIndex = 3;
             this.btnShowTable.Text = "Xem";
             this.btnShowTable.UseVisualStyleBackColor = true;
@@ -614,10 +614,10 @@
             // 
             // btnEditTable
             // 
-            this.btnEditTable.Location = new System.Drawing.Point(330, 6);
+            this.btnEditTable.Location = new System.Drawing.Point(493, 23);
             this.btnEditTable.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditTable.Name = "btnEditTable";
-            this.btnEditTable.Size = new System.Drawing.Size(150, 89);
+            this.btnEditTable.Size = new System.Drawing.Size(150, 55);
             this.btnEditTable.TabIndex = 2;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
@@ -625,10 +625,10 @@
             // 
             // btnDeleteTable
             // 
-            this.btnDeleteTable.Location = new System.Drawing.Point(168, 6);
+            this.btnDeleteTable.Location = new System.Drawing.Point(259, 23);
             this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteTable.Name = "btnDeleteTable";
-            this.btnDeleteTable.Size = new System.Drawing.Size(150, 89);
+            this.btnDeleteTable.Size = new System.Drawing.Size(150, 55);
             this.btnDeleteTable.TabIndex = 1;
             this.btnDeleteTable.Text = "Xóa";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
@@ -636,10 +636,10 @@
             // 
             // btnAddTable
             // 
-            this.btnAddTable.Location = new System.Drawing.Point(6, 6);
+            this.btnAddTable.Location = new System.Drawing.Point(35, 23);
             this.btnAddTable.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddTable.Name = "btnAddTable";
-            this.btnAddTable.Size = new System.Drawing.Size(150, 89);
+            this.btnAddTable.Size = new System.Drawing.Size(150, 55);
             this.btnAddTable.TabIndex = 0;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
@@ -651,7 +651,7 @@
             this.panel20.Location = new System.Drawing.Point(10, 119);
             this.panel20.Margin = new System.Windows.Forms.Padding(6);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(699, 666);
+            this.panel20.Size = new System.Drawing.Size(882, 666);
             this.panel20.TabIndex = 7;
             // 
             // dtgvTable
@@ -661,7 +661,7 @@
             this.dtgvTable.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowHeadersWidth = 62;
-            this.dtgvTable.Size = new System.Drawing.Size(686, 653);
+            this.dtgvTable.Size = new System.Drawing.Size(870, 653);
             this.dtgvTable.TabIndex = 0;
             // 
             // tbFoodCategory
@@ -1079,7 +1079,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(6, 22);
+            this.btnAddFood.Location = new System.Drawing.Point(29, 22);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(150, 51);
@@ -1273,7 +1273,7 @@
             // 
             this.panel30.Controls.Add(this.txbFindStaff);
             this.panel30.Controls.Add(this.btnSearchStaff);
-            this.panel30.Location = new System.Drawing.Point(724, 11);
+            this.panel30.Location = new System.Drawing.Point(907, 11);
             this.panel30.Margin = new System.Windows.Forms.Padding(6);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(566, 100);
@@ -1289,10 +1289,10 @@
             // 
             // btnSearchStaff
             // 
-            this.btnSearchStaff.Location = new System.Drawing.Point(416, 6);
+            this.btnSearchStaff.Location = new System.Drawing.Point(416, 21);
             this.btnSearchStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearchStaff.Name = "btnSearchStaff";
-            this.btnSearchStaff.Size = new System.Drawing.Size(150, 89);
+            this.btnSearchStaff.Size = new System.Drawing.Size(139, 57);
             this.btnSearchStaff.TabIndex = 4;
             this.btnSearchStaff.Text = "Tìm";
             this.btnSearchStaff.UseVisualStyleBackColor = true;
@@ -1307,7 +1307,7 @@
             this.panel31.Controls.Add(this.panel33);
             this.panel31.Controls.Add(this.panel34);
             this.panel31.Controls.Add(this.panel35);
-            this.panel31.Location = new System.Drawing.Point(724, 122);
+            this.panel31.Location = new System.Drawing.Point(907, 122);
             this.panel31.Margin = new System.Windows.Forms.Padding(6);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(570, 561);
@@ -1529,15 +1529,15 @@
             this.panel36.Location = new System.Drawing.Point(14, 11);
             this.panel36.Margin = new System.Windows.Forms.Padding(6);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(699, 100);
+            this.panel36.Size = new System.Drawing.Size(853, 100);
             this.panel36.TabIndex = 5;
             // 
             // btnNhapLai
             // 
-            this.btnNhapLai.Location = new System.Drawing.Point(556, 5);
+            this.btnNhapLai.Location = new System.Drawing.Point(698, 23);
             this.btnNhapLai.Margin = new System.Windows.Forms.Padding(6);
             this.btnNhapLai.Name = "btnNhapLai";
-            this.btnNhapLai.Size = new System.Drawing.Size(123, 89);
+            this.btnNhapLai.Size = new System.Drawing.Size(136, 57);
             this.btnNhapLai.TabIndex = 4;
             this.btnNhapLai.Text = "Nhập";
             this.btnNhapLai.UseVisualStyleBackColor = true;
@@ -1545,10 +1545,10 @@
             // 
             // btnLoadStaff
             // 
-            this.btnLoadStaff.Location = new System.Drawing.Point(422, 6);
+            this.btnLoadStaff.Location = new System.Drawing.Point(529, 23);
             this.btnLoadStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnLoadStaff.Name = "btnLoadStaff";
-            this.btnLoadStaff.Size = new System.Drawing.Size(123, 89);
+            this.btnLoadStaff.Size = new System.Drawing.Size(135, 56);
             this.btnLoadStaff.TabIndex = 3;
             this.btnLoadStaff.Text = "Xem";
             this.btnLoadStaff.UseVisualStyleBackColor = true;
@@ -1556,10 +1556,10 @@
             // 
             // btnEditStaff
             // 
-            this.btnEditStaff.Location = new System.Drawing.Point(288, 6);
+            this.btnEditStaff.Location = new System.Drawing.Point(192, 22);
             this.btnEditStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditStaff.Name = "btnEditStaff";
-            this.btnEditStaff.Size = new System.Drawing.Size(122, 89);
+            this.btnEditStaff.Size = new System.Drawing.Size(135, 57);
             this.btnEditStaff.TabIndex = 2;
             this.btnEditStaff.Text = "Sửa";
             this.btnEditStaff.UseVisualStyleBackColor = true;
@@ -1567,10 +1567,10 @@
             // 
             // btnDeleteStaff
             // 
-            this.btnDeleteStaff.Location = new System.Drawing.Point(146, 6);
+            this.btnDeleteStaff.Location = new System.Drawing.Point(359, 23);
             this.btnDeleteStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteStaff.Name = "btnDeleteStaff";
-            this.btnDeleteStaff.Size = new System.Drawing.Size(130, 89);
+            this.btnDeleteStaff.Size = new System.Drawing.Size(135, 56);
             this.btnDeleteStaff.TabIndex = 1;
             this.btnDeleteStaff.Text = "Xóa";
             this.btnDeleteStaff.UseVisualStyleBackColor = true;
@@ -1578,10 +1578,10 @@
             // 
             // btnAddStaff
             // 
-            this.btnAddStaff.Location = new System.Drawing.Point(6, 6);
+            this.btnAddStaff.Location = new System.Drawing.Point(21, 23);
             this.btnAddStaff.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddStaff.Name = "btnAddStaff";
-            this.btnAddStaff.Size = new System.Drawing.Size(128, 89);
+            this.btnAddStaff.Size = new System.Drawing.Size(135, 56);
             this.btnAddStaff.TabIndex = 0;
             this.btnAddStaff.Text = "Thêm";
             this.btnAddStaff.UseVisualStyleBackColor = true;
@@ -1594,7 +1594,7 @@
             this.dtgvStaff.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvStaff.Name = "dtgvStaff";
             this.dtgvStaff.RowHeadersWidth = 62;
-            this.dtgvStaff.Size = new System.Drawing.Size(699, 669);
+            this.dtgvStaff.Size = new System.Drawing.Size(853, 669);
             this.dtgvStaff.TabIndex = 4;
             // 
             // QuanLyQuanCafeDataSet2

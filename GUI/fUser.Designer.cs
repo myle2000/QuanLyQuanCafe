@@ -87,7 +87,7 @@ namespace QuanLyQuanCafe
             this.tcAdmin.Controls.Add(this.tpFood);
             this.tcAdmin.Controls.Add(this.tbFoodCategory);
             this.tcAdmin.Location = new System.Drawing.Point(6, 5);
-            this.tcAdmin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tcAdmin.Margin = new System.Windows.Forms.Padding(6);
             this.tcAdmin.Name = "tcAdmin";
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(1547, 844);
@@ -99,9 +99,9 @@ namespace QuanLyQuanCafe
             this.tpFood.Controls.Add(this.panel5);
             this.tpFood.Controls.Add(this.panel3);
             this.tpFood.Location = new System.Drawing.Point(4, 34);
-            this.tpFood.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tpFood.Margin = new System.Windows.Forms.Padding(6);
             this.tpFood.Name = "tpFood";
-            this.tpFood.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tpFood.Padding = new System.Windows.Forms.Padding(6);
             this.tpFood.Size = new System.Drawing.Size(1539, 806);
             this.tpFood.TabIndex = 1;
             this.tpFood.Text = "Món";
@@ -111,8 +111,8 @@ namespace QuanLyQuanCafe
             // 
             this.panel6.Controls.Add(this.txbSearchFoodName);
             this.panel6.Controls.Add(this.btnSearchFood);
-            this.panel6.Location = new System.Drawing.Point(892, 6);
-            this.panel6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel6.Location = new System.Drawing.Point(946, 6);
+            this.panel6.Margin = new System.Windows.Forms.Padding(6);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(566, 100);
             this.panel6.TabIndex = 3;
@@ -120,7 +120,7 @@ namespace QuanLyQuanCafe
             // txbSearchFoodName
             // 
             this.txbSearchFoodName.Location = new System.Drawing.Point(6, 33);
-            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(6);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
             this.txbSearchFoodName.Size = new System.Drawing.Size(394, 30);
             this.txbSearchFoodName.TabIndex = 5;
@@ -128,7 +128,7 @@ namespace QuanLyQuanCafe
             // btnSearchFood
             // 
             this.btnSearchFood.Location = new System.Drawing.Point(416, 23);
-            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearchFood.Name = "btnSearchFood";
             this.btnSearchFood.Size = new System.Drawing.Size(142, 53);
             this.btnSearchFood.TabIndex = 4;
@@ -142,8 +142,8 @@ namespace QuanLyQuanCafe
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
-            this.panel5.Location = new System.Drawing.Point(892, 117);
-            this.panel5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel5.Location = new System.Drawing.Point(946, 117);
+            this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(570, 666);
             this.panel5.TabIndex = 2;
@@ -153,7 +153,7 @@ namespace QuanLyQuanCafe
             this.panel10.Controls.Add(this.nmFoodPrice);
             this.panel10.Controls.Add(this.label4);
             this.panel10.Location = new System.Drawing.Point(6, 294);
-            this.panel10.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel10.Margin = new System.Windows.Forms.Padding(6);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(558, 84);
             this.panel10.TabIndex = 4;
@@ -161,7 +161,7 @@ namespace QuanLyQuanCafe
             // nmFoodPrice
             // 
             this.nmFoodPrice.Location = new System.Drawing.Point(182, 16);
-            this.nmFoodPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nmFoodPrice.Margin = new System.Windows.Forms.Padding(6);
             this.nmFoodPrice.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -187,7 +187,7 @@ namespace QuanLyQuanCafe
             this.panel9.Controls.Add(this.cbFoodCategory);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Location = new System.Drawing.Point(6, 197);
-            this.panel9.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel9.Margin = new System.Windows.Forms.Padding(6);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(558, 84);
             this.panel9.TabIndex = 3;
@@ -196,7 +196,7 @@ namespace QuanLyQuanCafe
             // 
             this.cbFoodCategory.FormattingEnabled = true;
             this.cbFoodCategory.Location = new System.Drawing.Point(182, 17);
-            this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(6);
             this.cbFoodCategory.Name = "cbFoodCategory";
             this.cbFoodCategory.Size = new System.Drawing.Size(367, 33);
             this.cbFoodCategory.TabIndex = 1;
@@ -217,7 +217,7 @@ namespace QuanLyQuanCafe
             this.panel8.Controls.Add(this.txbFoodName);
             this.panel8.Controls.Add(this.label2);
             this.panel8.Location = new System.Drawing.Point(6, 103);
-            this.panel8.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel8.Margin = new System.Windows.Forms.Padding(6);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(558, 84);
             this.panel8.TabIndex = 2;
@@ -225,7 +225,7 @@ namespace QuanLyQuanCafe
             // txbFoodName
             // 
             this.txbFoodName.Location = new System.Drawing.Point(182, 16);
-            this.txbFoodName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbFoodName.Margin = new System.Windows.Forms.Padding(6);
             this.txbFoodName.Name = "txbFoodName";
             this.txbFoodName.Size = new System.Drawing.Size(367, 30);
             this.txbFoodName.TabIndex = 1;
@@ -246,7 +246,7 @@ namespace QuanLyQuanCafe
             this.panel7.Controls.Add(this.txbFoodID);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(6, 6);
-            this.panel7.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel7.Margin = new System.Windows.Forms.Padding(6);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(558, 84);
             this.panel7.TabIndex = 1;
@@ -254,7 +254,7 @@ namespace QuanLyQuanCafe
             // txbFoodID
             // 
             this.txbFoodID.Location = new System.Drawing.Point(182, 16);
-            this.txbFoodID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbFoodID.Margin = new System.Windows.Forms.Padding(6);
             this.txbFoodID.Name = "txbFoodID";
             this.txbFoodID.ReadOnly = true;
             this.txbFoodID.Size = new System.Drawing.Size(367, 30);
@@ -275,19 +275,19 @@ namespace QuanLyQuanCafe
             // 
             this.panel3.Controls.Add(this.dtgvFood);
             this.panel3.Location = new System.Drawing.Point(12, 6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(868, 777);
+            this.panel3.Size = new System.Drawing.Size(922, 777);
             this.panel3.TabIndex = 0;
             // 
             // dtgvFood
             // 
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvFood.Location = new System.Drawing.Point(6, 6);
-            this.dtgvFood.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtgvFood.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.RowHeadersWidth = 62;
-            this.dtgvFood.Size = new System.Drawing.Size(846, 764);
+            this.dtgvFood.Size = new System.Drawing.Size(910, 764);
             this.dtgvFood.TabIndex = 0;
             // 
             // tbFoodCategory
@@ -296,9 +296,9 @@ namespace QuanLyQuanCafe
             this.tbFoodCategory.Controls.Add(this.panel12);
             this.tbFoodCategory.Controls.Add(this.panel18);
             this.tbFoodCategory.Location = new System.Drawing.Point(4, 34);
-            this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(6);
             this.tbFoodCategory.Name = "tbFoodCategory";
-            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(6);
             this.tbFoodCategory.Size = new System.Drawing.Size(1539, 806);
             this.tbFoodCategory.TabIndex = 2;
             this.tbFoodCategory.Text = "Danh mục";
@@ -309,8 +309,8 @@ namespace QuanLyQuanCafe
             // 
             this.panel24.Controls.Add(this.txbFindCategory);
             this.panel24.Controls.Add(this.btnSearchCategory);
-            this.panel24.Location = new System.Drawing.Point(917, 12);
-            this.panel24.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel24.Location = new System.Drawing.Point(950, 12);
+            this.panel24.Margin = new System.Windows.Forms.Padding(6);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(566, 100);
             this.panel24.TabIndex = 7;
@@ -318,7 +318,7 @@ namespace QuanLyQuanCafe
             // txbFindCategory
             // 
             this.txbFindCategory.Location = new System.Drawing.Point(6, 33);
-            this.txbFindCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbFindCategory.Margin = new System.Windows.Forms.Padding(6);
             this.txbFindCategory.Name = "txbFindCategory";
             this.txbFindCategory.Size = new System.Drawing.Size(394, 30);
             this.txbFindCategory.TabIndex = 5;
@@ -326,7 +326,7 @@ namespace QuanLyQuanCafe
             // btnSearchCategory
             // 
             this.btnSearchCategory.Location = new System.Drawing.Point(416, 21);
-            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearchCategory.Name = "btnSearchCategory";
             this.btnSearchCategory.Size = new System.Drawing.Size(144, 57);
             this.btnSearchCategory.TabIndex = 4;
@@ -338,8 +338,8 @@ namespace QuanLyQuanCafe
             // 
             this.panel12.Controls.Add(this.panel15);
             this.panel12.Controls.Add(this.panel16);
-            this.panel12.Location = new System.Drawing.Point(915, 125);
-            this.panel12.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel12.Location = new System.Drawing.Point(948, 125);
+            this.panel12.Margin = new System.Windows.Forms.Padding(6);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(570, 666);
             this.panel12.TabIndex = 6;
@@ -349,7 +349,7 @@ namespace QuanLyQuanCafe
             this.panel15.Controls.Add(this.txbCategoryName);
             this.panel15.Controls.Add(this.label7);
             this.panel15.Location = new System.Drawing.Point(6, 103);
-            this.panel15.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel15.Margin = new System.Windows.Forms.Padding(6);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(558, 84);
             this.panel15.TabIndex = 2;
@@ -357,7 +357,7 @@ namespace QuanLyQuanCafe
             // txbCategoryName
             // 
             this.txbCategoryName.Location = new System.Drawing.Point(250, 16);
-            this.txbCategoryName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbCategoryName.Margin = new System.Windows.Forms.Padding(6);
             this.txbCategoryName.Name = "txbCategoryName";
             this.txbCategoryName.Size = new System.Drawing.Size(298, 30);
             this.txbCategoryName.TabIndex = 1;
@@ -378,7 +378,7 @@ namespace QuanLyQuanCafe
             this.panel16.Controls.Add(this.txbCategoryID);
             this.panel16.Controls.Add(this.label8);
             this.panel16.Location = new System.Drawing.Point(6, 6);
-            this.panel16.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel16.Margin = new System.Windows.Forms.Padding(6);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(558, 84);
             this.panel16.TabIndex = 1;
@@ -386,7 +386,7 @@ namespace QuanLyQuanCafe
             // txbCategoryID
             // 
             this.txbCategoryID.Location = new System.Drawing.Point(250, 16);
-            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(6);
             this.txbCategoryID.Name = "txbCategoryID";
             this.txbCategoryID.ReadOnly = true;
             this.txbCategoryID.Size = new System.Drawing.Size(298, 30);
@@ -407,19 +407,19 @@ namespace QuanLyQuanCafe
             // 
             this.panel18.Controls.Add(this.dtgvCategory);
             this.panel18.Location = new System.Drawing.Point(10, 12);
-            this.panel18.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel18.Margin = new System.Windows.Forms.Padding(6);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(895, 772);
+            this.panel18.Size = new System.Drawing.Size(926, 772);
             this.panel18.TabIndex = 4;
             // 
             // dtgvCategory
             // 
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCategory.Location = new System.Drawing.Point(6, 9);
-            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowHeadersWidth = 62;
-            this.dtgvCategory.Size = new System.Drawing.Size(868, 756);
+            this.dtgvCategory.Size = new System.Drawing.Size(914, 756);
             this.dtgvCategory.TabIndex = 0;
             // 
             // fUser

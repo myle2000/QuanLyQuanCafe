@@ -253,7 +253,7 @@
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(731, 19);
+            this.btnCheckOut.Location = new System.Drawing.Point(731, 24);
             this.btnCheckOut.Margin = new System.Windows.Forms.Padding(6);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(150, 89);
