@@ -73,5 +73,10 @@ namespace QuanLyQuanCafe
             foodList.DataSource = FoodDAO.Instance.SearchFoodByName(txbSearchFoodName.Text);
             txbSearchFoodName.Text = "";
         }
+
+        private void tbFoodCategory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

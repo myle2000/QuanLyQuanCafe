@@ -96,9 +96,19 @@ namespace QuanLyQuanCafe.DAO
             catch { }
             string query = string.Format("Delete Food where id = {0}",idFood);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
-
             return result > 0;
         }
+        /*public bool DeleteFoodByIdCategory(int idCategory)
+        {
+            try
+            {
+                BillInfoDAO.Instance.DeleteBillInfoByFoodID(id);
+            }
+            catch { }
+            string query = string.Format("Delete Food where id = {0}", idFood);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }*/
         public int SearchIDfood(string nameFood)
         {
             string query = string.Format("select id as id from FOOD WHERE name=N'" + nameFood + "'");
@@ -106,7 +116,7 @@ namespace QuanLyQuanCafe.DAO
             int num = 0;
             foreach (DataRow dr in data.Rows)
             {
-                num = Convert.ToInt32(dr["id"].ToString());// bạn duyệt qua table bằng foreach, columnName là tên cột cần lấy  
+                num = Convert.ToInt32(dr["id"].ToString());  
             }
             return num;
         }

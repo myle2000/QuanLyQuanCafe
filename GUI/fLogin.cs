@@ -54,5 +54,18 @@ namespace QuanLyQuanCafe
                 e.Cancel = true;
             }
         }
+
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txbPassWord.UseSystemPasswordChar = false;
+                
+            }
+            else
+            {
+                txbPassWord.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

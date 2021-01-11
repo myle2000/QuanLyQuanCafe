@@ -224,7 +224,22 @@ namespace QuanLyQuanCafe
             int type = (int)numericUpDown1.Value;
             int id_staff = (cbNameStaff.SelectedItem as Staff).Id;
             string pass = txbPass.Text;
-
+            if (userName ==""||pass=="")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            }
+            List<Account> AccountList = AccountDAO.Instance.GetListAccountt();
+            foreach (Account item in AccountList)
+            {
+                if (item.Id_staff != id_staff)
+                {
+                    if (item.UserName == userName)
+                    {
+                        MessageBox.Show("Tài khoản đã tồn tại!");
+                        return;
+                    }
+                }
+            }
             EditAccount(userName, displayName, pass, type, id_staff);
         }
         private void btnNhap_Click(object sender, EventArgs e)
@@ -315,8 +330,24 @@ namespace QuanLyQuanCafe
             string name = txbFoodName.Text;
             int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
+            if (price < 0)
+            {
+                MessageBox.Show("Hãy nhập đúng giá tiền!");
+                return;
+            }
             int id = Convert.ToInt32(txbFoodID.Text);
-
+            List<Food> FoodList = FoodDAO.Instance.GetListFood();
+            foreach (Food item in FoodList)
+            {
+                if (item.ID != id)
+                {
+                    if (item.Name == name)
+                    {
+                        MessageBox.Show("Món đã tồn tại!");
+                        return;
+                    }
+                }
+            }
             if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
             {
                 MessageBox.Show("Sửa món thành công");
@@ -464,7 +495,7 @@ namespace QuanLyQuanCafe
             {
                 if (item.Name == name)
                 {
-                    MessageBox.Show("Danh mục đã tồn tại!");
+                    MessageBox.Show("Hãy nhập tên mới!");
                     return;
                 }
             }
@@ -548,6 +579,18 @@ namespace QuanLyQuanCafe
             string name = txbTableName.Text;
             int id = Convert.ToInt32(txbTableID.Text);
             int status = Convert.ToInt32(cbTableStatus.SelectedItem.ToString());
+            List<Table> TableList = TableDAO.Instance.GetListTable();
+            foreach (Table item in TableList)
+            {
+                if (item.ID != id)
+                {
+                    if (item.Name == name)
+                    {
+                        MessageBox.Show("Vui lòng nhập tên mới!");
+                        return;
+                    }
+                }
+            }
             if (TableDAO.Instance.UpdateTable(id, name, status))
             {
                 MessageBox.Show("Sửa thông tin bàn thành công");
@@ -616,6 +659,23 @@ namespace QuanLyQuanCafe
             string sex = txbSex.Text;
             int salary = Convert.ToInt32(txbSalary.Text);
             List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
+            foreach (Staff item in StaffList)
+            {
+                if (item.Id != Int32.Parse(txbIDStaff.Text))
+                {
+                    if (item.Name == name)
+                    {
+                        MessageBox.Show("Nhân viên đã tồn tại!");
+                        return;
+                    }
+                    if (item.Sdt == phone)
+                    {
+                        MessageBox.Show("Số điện thoại này đã có chủ!");
+                        return;
+                    }
+                }
+            
+            }
             int status = Convert.ToInt32(cbStatusStaff.Text);
             int id = Convert.ToInt32(txbIDStaff.Text);
 
@@ -649,9 +709,5 @@ namespace QuanLyQuanCafe
             txbAddress.Text = "";
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
