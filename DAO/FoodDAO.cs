@@ -34,9 +34,9 @@ namespace QuanLyQuanCafe.DAO
                 Food food = new Food(item);
                 list.Add(food);
             }
-
             return list;
         }
+
 
         public List<Food> GetListFood()
         {
@@ -98,17 +98,17 @@ namespace QuanLyQuanCafe.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        /*public bool DeleteFoodByIdCategory(int idCategory)
+        public bool DeleteFoodByIdCategory(int idCategory)
         {
-            try
+            /*try
             {
                 BillInfoDAO.Instance.DeleteBillInfoByFoodID(id);
             }
-            catch { }
-            string query = string.Format("Delete Food where id = {0}", idFood);
+            catch { }*/
+            string query = string.Format("Delete Food where id_category = {0}", idCategory);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
-        }*/
+        }
         public int SearchIDfood(string nameFood)
         {
             string query = string.Format("select id as id from FOOD WHERE name=N'" + nameFood + "'");

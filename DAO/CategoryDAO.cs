@@ -68,11 +68,14 @@ namespace QuanLyQuanCafe.DAO
         }
         public bool DeleteCategory(int idCategory)
         {
-            /*try
+            try
             {
-                FoodDAO.Instance.DeleteFood()
+                FoodDAO.Instance.DeleteFoodByIdCategory(idCategory);
             }
-            catch { }*/
+            catch 
+            {
+               
+            }
             string query = string.Format("Delete FOOD_CATEGORY where id = {0}", idCategory);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;

@@ -484,7 +484,9 @@ namespace QuanLyQuanCafe
                         MessageBox.Show("Có lỗi khi xóa danh mục");
                     }
             }
-            catch { }
+            catch {
+                MessageBox.Show("Không thể xóa danh mục!");
+            }
         }
 
         private void btnEditCategory_Click(object sender, EventArgs e)
