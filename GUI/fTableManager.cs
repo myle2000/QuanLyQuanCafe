@@ -327,5 +327,11 @@ namespace QuanLyQuanCafe
             f.ShowDialog();
             this.Show();
         }
+
+        private void fTableManager_Load(object sender, EventArgs e)
+        {
+            this.helpProvider1.SetShowHelp(this.textBox1, true);
+            this.helpProvider1.SetHelpString(this.textBox1, "Ctrl + A de thanh toan \n Ctrl + B de them mon");
+        }
     }
 }

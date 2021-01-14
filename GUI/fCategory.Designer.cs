@@ -188,6 +188,7 @@ namespace QuanLyQuanCafe.GUI
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fCategory";
             this.Text = "Danh sách danh mục";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panel12.ResumeLayout(false);

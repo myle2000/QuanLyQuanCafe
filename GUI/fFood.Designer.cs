@@ -284,6 +284,7 @@ namespace QuanLyQuanCafe.GUI
             this.Name = "fFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách món";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
