@@ -1,7 +1,7 @@
 ﻿
-namespace QuanLyQuanCafe
+namespace QuanLyQuanCafe.GUI
 {
-    partial class fUser
+    partial class fFood
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@ namespace QuanLyQuanCafe
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcAdmin = new System.Windows.Forms.TabControl();
-            this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbSearchFoodName = new System.Windows.Forms.TextBox();
             this.btnSearchFood = new System.Windows.Forms.Button();
@@ -47,23 +45,11 @@ namespace QuanLyQuanCafe
             this.panel7 = new System.Windows.Forms.Panel();
             this.txbFoodID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
-            this.tbFoodCategory = new System.Windows.Forms.TabPage();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.txbFindCategory = new System.Windows.Forms.TextBox();
-            this.btnSearchCategory = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.txbCategoryName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.txbCategoryID = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.dtgvCategory = new System.Windows.Forms.DataGridView();
-            this.tcAdmin.SuspendLayout();
-            this.tpFood.SuspendLayout();
+            this.cID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIDCate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -71,51 +57,18 @@ namespace QuanLyQuanCafe
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).BeginInit();
-            this.tbFoodCategory.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tcAdmin
-            // 
-            this.tcAdmin.Controls.Add(this.tpFood);
-            this.tcAdmin.Controls.Add(this.tbFoodCategory);
-            this.tcAdmin.Location = new System.Drawing.Point(6, 5);
-            this.tcAdmin.Margin = new System.Windows.Forms.Padding(6);
-            this.tcAdmin.Name = "tcAdmin";
-            this.tcAdmin.SelectedIndex = 0;
-            this.tcAdmin.Size = new System.Drawing.Size(1547, 844);
-            this.tcAdmin.TabIndex = 1;
-            // 
-            // tpFood
-            // 
-            this.tpFood.Controls.Add(this.panel6);
-            this.tpFood.Controls.Add(this.panel5);
-            this.tpFood.Controls.Add(this.panel3);
-            this.tpFood.Location = new System.Drawing.Point(4, 34);
-            this.tpFood.Margin = new System.Windows.Forms.Padding(6);
-            this.tpFood.Name = "tpFood";
-            this.tpFood.Padding = new System.Windows.Forms.Padding(6);
-            this.tpFood.Size = new System.Drawing.Size(1539, 806);
-            this.tpFood.TabIndex = 1;
-            this.tpFood.Text = "Món";
-            this.tpFood.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.txbSearchFoodName);
             this.panel6.Controls.Add(this.btnSearchFood);
-            this.panel6.Location = new System.Drawing.Point(946, 6);
+            this.panel6.Location = new System.Drawing.Point(955, 15);
             this.panel6.Margin = new System.Windows.Forms.Padding(6);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(566, 100);
-            this.panel6.TabIndex = 3;
+            this.panel6.Size = new System.Drawing.Size(566, 102);
+            this.panel6.TabIndex = 6;
             // 
             // txbSearchFoodName
             // 
@@ -142,11 +95,11 @@ namespace QuanLyQuanCafe
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
-            this.panel5.Location = new System.Drawing.Point(946, 117);
+            this.panel5.Location = new System.Drawing.Point(955, 126);
             this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(570, 666);
-            this.panel5.TabIndex = 2;
+            this.panel5.Size = new System.Drawing.Size(570, 655);
+            this.panel5.TabIndex = 5;
             // 
             // panel10
             // 
@@ -271,172 +224,66 @@ namespace QuanLyQuanCafe
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dtgvFood);
-            this.panel3.Location = new System.Drawing.Point(12, 6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(922, 777);
-            this.panel3.TabIndex = 0;
-            // 
             // dtgvFood
             // 
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvFood.Location = new System.Drawing.Point(6, 6);
+            this.dtgvFood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cID,
+            this.cName,
+            this.cIDCate,
+            this.cPrice});
+            this.dtgvFood.Location = new System.Drawing.Point(15, 15);
             this.dtgvFood.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.RowHeadersWidth = 62;
-            this.dtgvFood.Size = new System.Drawing.Size(910, 764);
-            this.dtgvFood.TabIndex = 0;
+            this.dtgvFood.Size = new System.Drawing.Size(914, 766);
+            this.dtgvFood.TabIndex = 4;
             // 
-            // tbFoodCategory
+            // cID
             // 
-            this.tbFoodCategory.Controls.Add(this.panel24);
-            this.tbFoodCategory.Controls.Add(this.panel12);
-            this.tbFoodCategory.Controls.Add(this.panel18);
-            this.tbFoodCategory.Location = new System.Drawing.Point(4, 34);
-            this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(6);
-            this.tbFoodCategory.Name = "tbFoodCategory";
-            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(6);
-            this.tbFoodCategory.Size = new System.Drawing.Size(1539, 806);
-            this.tbFoodCategory.TabIndex = 2;
-            this.tbFoodCategory.Text = "Danh mục";
-            this.tbFoodCategory.UseVisualStyleBackColor = true;
-            this.tbFoodCategory.Click += new System.EventHandler(this.tbFoodCategory_Click);
+            this.cID.DataPropertyName = "ID";
+            this.cID.HeaderText = "ID";
+            this.cID.MinimumWidth = 6;
+            this.cID.Name = "cID";
+            this.cID.Width = 150;
             // 
-            // panel24
+            // cName
             // 
-            this.panel24.Controls.Add(this.txbFindCategory);
-            this.panel24.Controls.Add(this.btnSearchCategory);
-            this.panel24.Location = new System.Drawing.Point(950, 12);
-            this.panel24.Margin = new System.Windows.Forms.Padding(6);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(566, 100);
-            this.panel24.TabIndex = 7;
+            this.cName.DataPropertyName = "Name";
+            this.cName.HeaderText = "Tên món";
+            this.cName.MinimumWidth = 6;
+            this.cName.Name = "cName";
+            this.cName.Width = 350;
             // 
-            // txbFindCategory
+            // cIDCate
             // 
-            this.txbFindCategory.Location = new System.Drawing.Point(6, 33);
-            this.txbFindCategory.Margin = new System.Windows.Forms.Padding(6);
-            this.txbFindCategory.Name = "txbFindCategory";
-            this.txbFindCategory.Size = new System.Drawing.Size(394, 30);
-            this.txbFindCategory.TabIndex = 5;
+            this.cIDCate.DataPropertyName = "CategoryID";
+            this.cIDCate.HeaderText = "ID danh mục";
+            this.cIDCate.MinimumWidth = 6;
+            this.cIDCate.Name = "cIDCate";
+            this.cIDCate.Width = 150;
             // 
-            // btnSearchCategory
+            // cPrice
             // 
-            this.btnSearchCategory.Location = new System.Drawing.Point(416, 21);
-            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(6);
-            this.btnSearchCategory.Name = "btnSearchCategory";
-            this.btnSearchCategory.Size = new System.Drawing.Size(144, 57);
-            this.btnSearchCategory.TabIndex = 4;
-            this.btnSearchCategory.Text = "Tìm";
-            this.btnSearchCategory.UseVisualStyleBackColor = true;
-            this.btnSearchCategory.Click += new System.EventHandler(this.btnSearchCategory_Click);
+            this.cPrice.DataPropertyName = "Price";
+            this.cPrice.HeaderText = "Giá";
+            this.cPrice.MinimumWidth = 6;
+            this.cPrice.Name = "cPrice";
+            this.cPrice.Width = 200;
             // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.panel15);
-            this.panel12.Controls.Add(this.panel16);
-            this.panel12.Location = new System.Drawing.Point(948, 125);
-            this.panel12.Margin = new System.Windows.Forms.Padding(6);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(570, 666);
-            this.panel12.TabIndex = 6;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.txbCategoryName);
-            this.panel15.Controls.Add(this.label7);
-            this.panel15.Location = new System.Drawing.Point(6, 103);
-            this.panel15.Margin = new System.Windows.Forms.Padding(6);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(558, 84);
-            this.panel15.TabIndex = 2;
-            // 
-            // txbCategoryName
-            // 
-            this.txbCategoryName.Location = new System.Drawing.Point(250, 16);
-            this.txbCategoryName.Margin = new System.Windows.Forms.Padding(6);
-            this.txbCategoryName.Name = "txbCategoryName";
-            this.txbCategoryName.Size = new System.Drawing.Size(298, 30);
-            this.txbCategoryName.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(6, 17);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(152, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Tên danh mục:";
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.txbCategoryID);
-            this.panel16.Controls.Add(this.label8);
-            this.panel16.Location = new System.Drawing.Point(6, 6);
-            this.panel16.Margin = new System.Windows.Forms.Padding(6);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(558, 84);
-            this.panel16.TabIndex = 1;
-            // 
-            // txbCategoryID
-            // 
-            this.txbCategoryID.Location = new System.Drawing.Point(250, 16);
-            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(6);
-            this.txbCategoryID.Name = "txbCategoryID";
-            this.txbCategoryID.ReadOnly = true;
-            this.txbCategoryID.Size = new System.Drawing.Size(298, 30);
-            this.txbCategoryID.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(6, 17);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 24);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "ID:";
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.dtgvCategory);
-            this.panel18.Location = new System.Drawing.Point(10, 12);
-            this.panel18.Margin = new System.Windows.Forms.Padding(6);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(926, 772);
-            this.panel18.TabIndex = 4;
-            // 
-            // dtgvCategory
-            // 
-            this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCategory.Location = new System.Drawing.Point(6, 9);
-            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(6);
-            this.dtgvCategory.Name = "dtgvCategory";
-            this.dtgvCategory.RowHeadersWidth = 62;
-            this.dtgvCategory.Size = new System.Drawing.Size(914, 756);
-            this.dtgvCategory.TabIndex = 0;
-            // 
-            // fUser
+            // fFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
-            this.Controls.Add(this.tcAdmin);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.dtgvFood);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "fUser";
+            this.Name = "fFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fUser";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.fUser_Load);
-            this.tcAdmin.ResumeLayout(false);
-            this.tpFood.ResumeLayout(false);
+            this.Text = "Danh sách món";
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -449,26 +296,13 @@ namespace QuanLyQuanCafe
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).EndInit();
-            this.tbFoodCategory.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcAdmin;
-        private System.Windows.Forms.TabPage tpFood;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txbSearchFoodName;
         private System.Windows.Forms.Button btnSearchFood;
@@ -485,20 +319,10 @@ namespace QuanLyQuanCafe
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txbFoodID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtgvFood;
-        private System.Windows.Forms.TabPage tbFoodCategory;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.TextBox txbFindCategory;
-        private System.Windows.Forms.Button btnSearchCategory;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox txbCategoryName;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox txbCategoryID;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.DataGridView dtgvCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDCate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
     }
 }

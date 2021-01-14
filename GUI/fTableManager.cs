@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyQuanCafe.GUI;
 
 namespace QuanLyQuanCafe
 {
@@ -38,7 +39,8 @@ namespace QuanLyQuanCafe
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Visible = type == 1;
-            userToolStripMenuItem.Visible = type == 0;
+            foodToolStripMenuItem.Visible = type == 0;
+            danhMụcToolStripMenuItem.Visible = type == 0;
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName +")";
         }
         void LoadCategory()
@@ -307,14 +309,23 @@ namespace QuanLyQuanCafe
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fUser f = new fUser();
+            fFood f = new fFood();
             f.ShowDialog();
             this.Show();
+          
         }
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fCategory f = new fCategory();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

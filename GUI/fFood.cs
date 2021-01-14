@@ -8,32 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyQuanCafe.DAO;
-using QuanLyQuanCafe.DTO;
 
-namespace QuanLyQuanCafe
+namespace QuanLyQuanCafe.GUI
 {
-    public partial class fUser : Form
+    public partial class fFood : Form
     {
-        BindingSource foodList = new BindingSource();
-        BindingSource categoryList = new BindingSource();
-        public fUser()
+        public fFood()
         {
             InitializeComponent();
             LoadData();
         }
-
-        private void fUser_Load(object sender, EventArgs e)
-        {
-        }
+        BindingSource foodList = new BindingSource();
         void LoadData()
         {
             dtgvFood.DataSource = foodList;
-            dtgvCategory.DataSource = categoryList;
             LoadListFood();
-            LoadListCategory();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
-            AddCategoryBinding();
         }
         void AddFoodBinding()
         {
@@ -41,12 +32,7 @@ namespace QuanLyQuanCafe
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
-        void AddCategoryBinding()
-        {
-            txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
-            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
-        }
-        
+
 
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
@@ -57,26 +43,11 @@ namespace QuanLyQuanCafe
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
-        void LoadListCategory()
-        {
-            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
-        }
-
-        private void btnSearchCategory_Click(object sender, EventArgs e)
-        {
-            categoryList.DataSource = CategoryDAO.Instance.SearchCategoryByName(txbFindCategory.Text);
-            txbFindCategory.Text = "";
-        }
 
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
             foodList.DataSource = FoodDAO.Instance.SearchFoodByName(txbSearchFoodName.Text);
             txbSearchFoodName.Text = "";
-        }
-
-        private void tbFoodCategory_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

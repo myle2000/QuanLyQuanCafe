@@ -77,6 +77,18 @@
     <Compile Include="GUI\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fCategory.Designer.cs">
+      <DependentUpon>fCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fFood.Designer.cs">
+      <DependentUpon>fFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +100,6 @@
     </Compile>
     <Compile Include="GUI\fTableManager.Designer.cs">
       <DependentUpon>fTableManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\fUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fUser.Designer.cs">
-      <DependentUpon>fUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +114,17 @@
     <EmbeddedResource Include="GUI\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fCategory.resx">
+      <DependentUpon>fCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fFood.resx">
+      <DependentUpon>fFood.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fTableManager.resx">
       <DependentUpon>fTableManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fUser.resx">
-      <DependentUpon>fUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

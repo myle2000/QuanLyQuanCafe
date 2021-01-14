@@ -460,6 +460,7 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Thêm danh mục thành công");
                 LoadListCategory();
+                LoadCategoryIntoCombobox(cbFoodCategory);
             }
             else
             {
@@ -478,6 +479,8 @@ namespace QuanLyQuanCafe
                     {
                         MessageBox.Show("Xóa danh mục thành công");
                         LoadListCategory();
+                        LoadListFood();
+                        LoadCategoryIntoCombobox(cbFoodCategory);
                     }
                     else
                     {
@@ -507,6 +510,7 @@ namespace QuanLyQuanCafe
             {
                 MessageBox.Show("Sửa danh mục thành công");
                 LoadListCategory();
+                LoadCategoryIntoCombobox(cbFoodCategory);
             }
             else
             {

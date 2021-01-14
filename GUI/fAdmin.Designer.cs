@@ -53,6 +53,12 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.cIDStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpTable = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -71,6 +77,9 @@
             this.btnAddTable = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.dtgvTable = new System.Windows.Forms.DataGridView();
+            this.cIDTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStatusTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbFoodCategory = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.txbFindCategory = new System.Windows.Forms.TextBox();
@@ -89,6 +98,8 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.dtgvCategory = new System.Windows.Forms.DataGridView();
+            this.cIDCategorym = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbSearchFoodName = new System.Windows.Forms.TextBox();
@@ -113,6 +124,10 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
+            this.cIDFood = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameFood = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIDCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnViewBill = new System.Windows.Forms.Button();
@@ -159,6 +174,13 @@
             this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.dtgvStaff = new System.Windows.Forms.DataGridView();
+            this.cStaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStaffStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuanLyQuanCafeDataSet2 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2();
             this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
@@ -227,11 +249,11 @@
             this.tpAccount.Controls.Add(this.panel23);
             this.tpAccount.Controls.Add(this.panel28);
             this.tpAccount.Controls.Add(this.panel29);
-            this.tpAccount.Location = new System.Drawing.Point(4, 34);
+            this.tpAccount.Location = new System.Drawing.Point(4, 38);
             this.tpAccount.Margin = new System.Windows.Forms.Padding(6);
             this.tpAccount.Name = "tpAccount";
             this.tpAccount.Padding = new System.Windows.Forms.Padding(6);
-            this.tpAccount.Size = new System.Drawing.Size(1592, 862);
+            this.tpAccount.Size = new System.Drawing.Size(1592, 858);
             this.tpAccount.TabIndex = 4;
             this.tpAccount.Text = "Tài khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
@@ -246,7 +268,7 @@
             this.panel23.Location = new System.Drawing.Point(919, 119);
             this.panel23.Margin = new System.Windows.Forms.Padding(6);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(570, 666);
+            this.panel23.Size = new System.Drawing.Size(570, 571);
             this.panel23.TabIndex = 6;
             // 
             // panel22
@@ -264,17 +286,17 @@
             this.txbPass.Location = new System.Drawing.Point(250, 22);
             this.txbPass.Margin = new System.Windows.Forms.Padding(6);
             this.txbPass.Name = "txbPass";
-            this.txbPass.Size = new System.Drawing.Size(295, 30);
+            this.txbPass.Size = new System.Drawing.Size(295, 34);
             this.txbPass.TabIndex = 1;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label14.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label14.Location = new System.Drawing.Point(6, 17);
             this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 24);
+            this.label14.Size = new System.Drawing.Size(149, 33);
             this.label14.TabIndex = 0;
             this.label14.Text = "Mật khẩu:";
             // 
@@ -294,17 +316,17 @@
             this.cbNameStaff.Location = new System.Drawing.Point(250, 17);
             this.cbNameStaff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbNameStaff.Name = "cbNameStaff";
-            this.cbNameStaff.Size = new System.Drawing.Size(295, 33);
+            this.cbNameStaff.Size = new System.Drawing.Size(295, 37);
             this.cbNameStaff.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label10.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label10.Location = new System.Drawing.Point(6, 17);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 24);
+            this.label10.Size = new System.Drawing.Size(223, 33);
             this.label10.TabIndex = 0;
             this.label10.Text = "Tên nhân viên: ";
             // 
@@ -328,17 +350,17 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(66, 30);
+            this.numericUpDown1.Size = new System.Drawing.Size(66, 34);
             this.numericUpDown1.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label11.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label11.Location = new System.Drawing.Point(6, 17);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 24);
+            this.label11.Size = new System.Drawing.Size(205, 33);
             this.label11.TabIndex = 0;
             this.label11.Text = "Loại tài khoản";
             // 
@@ -357,17 +379,17 @@
             this.txbDisplayName.Location = new System.Drawing.Point(254, 16);
             this.txbDisplayName.Margin = new System.Windows.Forms.Padding(6);
             this.txbDisplayName.Name = "txbDisplayName";
-            this.txbDisplayName.Size = new System.Drawing.Size(295, 30);
+            this.txbDisplayName.Size = new System.Drawing.Size(295, 34);
             this.txbDisplayName.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label12.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label12.Location = new System.Drawing.Point(6, 17);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(129, 24);
+            this.label12.Size = new System.Drawing.Size(184, 33);
             this.label12.TabIndex = 0;
             this.label12.Text = "Tên hiển thị:";
             // 
@@ -386,17 +408,17 @@
             this.txbUserName.Location = new System.Drawing.Point(254, 16);
             this.txbUserName.Margin = new System.Windows.Forms.Padding(6);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(295, 30);
+            this.txbUserName.Size = new System.Drawing.Size(295, 34);
             this.txbUserName.TabIndex = 1;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label13.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label13.Location = new System.Drawing.Point(6, 17);
             this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(146, 24);
+            this.label13.Size = new System.Drawing.Size(208, 33);
             this.label13.TabIndex = 0;
             this.label13.Text = "Tên tài khoản:";
             // 
@@ -462,31 +484,86 @@
             this.panel29.Location = new System.Drawing.Point(10, 119);
             this.panel29.Margin = new System.Windows.Forms.Padding(6);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(888, 666);
+            this.panel29.Size = new System.Drawing.Size(888, 571);
             this.panel29.TabIndex = 4;
             // 
             // dtgvAccount
             // 
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cIDStaff,
+            this.cNameAccount,
+            this.cDisplayName,
+            this.cNameStaff,
+            this.cPassword,
+            this.cType});
             this.dtgvAccount.Location = new System.Drawing.Point(6, 6);
             this.dtgvAccount.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowHeadersWidth = 62;
-            this.dtgvAccount.Size = new System.Drawing.Size(876, 653);
+            this.dtgvAccount.Size = new System.Drawing.Size(876, 555);
             this.dtgvAccount.TabIndex = 0;
+            // 
+            // cIDStaff
+            // 
+            this.cIDStaff.DataPropertyName = "id_staff";
+            this.cIDStaff.HeaderText = "ID nhân viên";
+            this.cIDStaff.MinimumWidth = 6;
+            this.cIDStaff.Name = "cIDStaff";
+            this.cIDStaff.Width = 125;
+            // 
+            // cNameAccount
+            // 
+            this.cNameAccount.DataPropertyName = "username";
+            this.cNameAccount.HeaderText = "Tên tài khoản";
+            this.cNameAccount.MinimumWidth = 6;
+            this.cNameAccount.Name = "cNameAccount";
+            this.cNameAccount.Width = 125;
+            // 
+            // cDisplayName
+            // 
+            this.cDisplayName.DataPropertyName = "displayname";
+            this.cDisplayName.HeaderText = "Tên hiển thị";
+            this.cDisplayName.MinimumWidth = 6;
+            this.cDisplayName.Name = "cDisplayName";
+            this.cDisplayName.Width = 125;
+            // 
+            // cNameStaff
+            // 
+            this.cNameStaff.DataPropertyName = "Staff_name";
+            this.cNameStaff.HeaderText = "Tên nhân viên";
+            this.cNameStaff.MinimumWidth = 6;
+            this.cNameStaff.Name = "cNameStaff";
+            this.cNameStaff.Width = 125;
+            // 
+            // cPassword
+            // 
+            this.cPassword.DataPropertyName = "password";
+            this.cPassword.HeaderText = "Mật khẩu";
+            this.cPassword.MinimumWidth = 6;
+            this.cPassword.Name = "cPassword";
+            this.cPassword.Width = 125;
+            // 
+            // cType
+            // 
+            this.cType.DataPropertyName = "type";
+            this.cType.HeaderText = "Loại tài khoản";
+            this.cType.MinimumWidth = 6;
+            this.cType.Name = "cType";
+            this.cType.Width = 125;
             // 
             // tpTable
             // 
             this.tpTable.Controls.Add(this.panel11);
             this.tpTable.Controls.Add(this.panel19);
             this.tpTable.Controls.Add(this.panel20);
-            this.tpTable.Location = new System.Drawing.Point(4, 34);
+            this.tpTable.Location = new System.Drawing.Point(4, 38);
             this.tpTable.Margin = new System.Windows.Forms.Padding(6);
             this.tpTable.Name = "tpTable";
             this.tpTable.Padding = new System.Windows.Forms.Padding(6);
-            this.tpTable.Size = new System.Drawing.Size(1592, 862);
+            this.tpTable.Size = new System.Drawing.Size(1592, 858);
             this.tpTable.TabIndex = 3;
-            this.tpTable.Text = "Bàn ăn";
+            this.tpTable.Text = "Bàn";
             this.tpTable.UseVisualStyleBackColor = true;
             // 
             // panel11
@@ -497,7 +574,7 @@
             this.panel11.Location = new System.Drawing.Point(904, 119);
             this.panel11.Margin = new System.Windows.Forms.Padding(6);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(570, 666);
+            this.panel11.Size = new System.Drawing.Size(570, 590);
             this.panel11.TabIndex = 9;
             // 
             // panel21
@@ -516,17 +593,17 @@
             this.cbTableStatus.Location = new System.Drawing.Point(250, 17);
             this.cbTableStatus.Margin = new System.Windows.Forms.Padding(6);
             this.cbTableStatus.Name = "cbTableStatus";
-            this.cbTableStatus.Size = new System.Drawing.Size(298, 33);
+            this.cbTableStatus.Size = new System.Drawing.Size(298, 37);
             this.cbTableStatus.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label9.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.Location = new System.Drawing.Point(6, 17);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 24);
+            this.label9.Size = new System.Drawing.Size(160, 33);
             this.label9.TabIndex = 0;
             this.label9.Text = "Trạng thái:";
             // 
@@ -545,17 +622,17 @@
             this.txbTableName.Location = new System.Drawing.Point(250, 16);
             this.txbTableName.Margin = new System.Windows.Forms.Padding(6);
             this.txbTableName.Name = "txbTableName";
-            this.txbTableName.Size = new System.Drawing.Size(298, 30);
+            this.txbTableName.Size = new System.Drawing.Size(298, 34);
             this.txbTableName.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.Location = new System.Drawing.Point(6, 17);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 24);
+            this.label5.Size = new System.Drawing.Size(134, 33);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên bàn:";
             // 
@@ -575,17 +652,17 @@
             this.txbTableID.Margin = new System.Windows.Forms.Padding(6);
             this.txbTableID.Name = "txbTableID";
             this.txbTableID.ReadOnly = true;
-            this.txbTableID.Size = new System.Drawing.Size(298, 30);
+            this.txbTableID.Size = new System.Drawing.Size(298, 34);
             this.txbTableID.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Location = new System.Drawing.Point(6, 17);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 24);
+            this.label6.Size = new System.Drawing.Size(53, 33);
             this.label6.TabIndex = 0;
             this.label6.Text = "ID:";
             // 
@@ -651,18 +728,46 @@
             this.panel20.Location = new System.Drawing.Point(10, 119);
             this.panel20.Margin = new System.Windows.Forms.Padding(6);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(882, 666);
+            this.panel20.Size = new System.Drawing.Size(882, 590);
             this.panel20.TabIndex = 7;
             // 
             // dtgvTable
             // 
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cIDTable,
+            this.cNameTable,
+            this.cStatusTable});
             this.dtgvTable.Location = new System.Drawing.Point(6, 6);
             this.dtgvTable.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowHeadersWidth = 62;
-            this.dtgvTable.Size = new System.Drawing.Size(870, 653);
+            this.dtgvTable.Size = new System.Drawing.Size(870, 576);
             this.dtgvTable.TabIndex = 0;
+            // 
+            // cIDTable
+            // 
+            this.cIDTable.DataPropertyName = "ID";
+            this.cIDTable.HeaderText = "ID";
+            this.cIDTable.MinimumWidth = 6;
+            this.cIDTable.Name = "cIDTable";
+            this.cIDTable.Width = 125;
+            // 
+            // cNameTable
+            // 
+            this.cNameTable.DataPropertyName = "Name";
+            this.cNameTable.HeaderText = "Tên bàn";
+            this.cNameTable.MinimumWidth = 6;
+            this.cNameTable.Name = "cNameTable";
+            this.cNameTable.Width = 125;
+            // 
+            // cStatusTable
+            // 
+            this.cStatusTable.DataPropertyName = "Status";
+            this.cStatusTable.HeaderText = "Trạng thái";
+            this.cStatusTable.MinimumWidth = 6;
+            this.cStatusTable.Name = "cStatusTable";
+            this.cStatusTable.Width = 125;
             // 
             // tbFoodCategory
             // 
@@ -670,11 +775,11 @@
             this.tbFoodCategory.Controls.Add(this.panel12);
             this.tbFoodCategory.Controls.Add(this.panel17);
             this.tbFoodCategory.Controls.Add(this.panel18);
-            this.tbFoodCategory.Location = new System.Drawing.Point(4, 34);
+            this.tbFoodCategory.Location = new System.Drawing.Point(4, 38);
             this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(6);
             this.tbFoodCategory.Name = "tbFoodCategory";
             this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(6);
-            this.tbFoodCategory.Size = new System.Drawing.Size(1592, 862);
+            this.tbFoodCategory.Size = new System.Drawing.Size(1592, 858);
             this.tbFoodCategory.TabIndex = 2;
             this.tbFoodCategory.Text = "Danh mục";
             this.tbFoodCategory.UseVisualStyleBackColor = true;
@@ -691,10 +796,11 @@
             // 
             // txbFindCategory
             // 
+            this.txbFindCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFindCategory.Location = new System.Drawing.Point(6, 33);
             this.txbFindCategory.Margin = new System.Windows.Forms.Padding(6);
             this.txbFindCategory.Name = "txbFindCategory";
-            this.txbFindCategory.Size = new System.Drawing.Size(394, 30);
+            this.txbFindCategory.Size = new System.Drawing.Size(394, 34);
             this.txbFindCategory.TabIndex = 5;
             // 
             // btnSearchCategory
@@ -715,7 +821,7 @@
             this.panel12.Location = new System.Drawing.Point(904, 119);
             this.panel12.Margin = new System.Windows.Forms.Padding(6);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(570, 666);
+            this.panel12.Size = new System.Drawing.Size(570, 600);
             this.panel12.TabIndex = 6;
             // 
             // panel15
@@ -730,20 +836,21 @@
             // 
             // txbCategoryName
             // 
+            this.txbCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbCategoryName.Location = new System.Drawing.Point(250, 16);
             this.txbCategoryName.Margin = new System.Windows.Forms.Padding(6);
             this.txbCategoryName.Name = "txbCategoryName";
-            this.txbCategoryName.Size = new System.Drawing.Size(298, 30);
+            this.txbCategoryName.Size = new System.Drawing.Size(298, 34);
             this.txbCategoryName.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.Location = new System.Drawing.Point(6, 17);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(152, 24);
+            this.label7.Size = new System.Drawing.Size(218, 33);
             this.label7.TabIndex = 0;
             this.label7.Text = "Tên danh mục:";
             // 
@@ -759,21 +866,22 @@
             // 
             // txbCategoryID
             // 
+            this.txbCategoryID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbCategoryID.Location = new System.Drawing.Point(250, 16);
             this.txbCategoryID.Margin = new System.Windows.Forms.Padding(6);
             this.txbCategoryID.Name = "txbCategoryID";
             this.txbCategoryID.ReadOnly = true;
-            this.txbCategoryID.Size = new System.Drawing.Size(298, 30);
+            this.txbCategoryID.Size = new System.Drawing.Size(298, 34);
             this.txbCategoryID.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.Location = new System.Drawing.Point(6, 17);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 24);
+            this.label8.Size = new System.Drawing.Size(53, 33);
             this.label8.TabIndex = 0;
             this.label8.Text = "ID:";
             // 
@@ -802,7 +910,7 @@
             // 
             // btnEditCategory
             // 
-            this.btnEditCategory.Location = new System.Drawing.Point(498, 20);
+            this.btnEditCategory.Location = new System.Drawing.Point(494, 20);
             this.btnEditCategory.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(150, 51);
@@ -824,7 +932,7 @@
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(16, 20);
+            this.btnAddCategory.Location = new System.Drawing.Point(21, 22);
             this.btnAddCategory.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(150, 51);
@@ -839,18 +947,37 @@
             this.panel18.Location = new System.Drawing.Point(10, 119);
             this.panel18.Margin = new System.Windows.Forms.Padding(6);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(882, 666);
+            this.panel18.Size = new System.Drawing.Size(882, 600);
             this.panel18.TabIndex = 4;
             // 
             // dtgvCategory
             // 
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cIDCategorym,
+            this.cNameCategory});
             this.dtgvCategory.Location = new System.Drawing.Point(6, 6);
             this.dtgvCategory.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowHeadersWidth = 62;
-            this.dtgvCategory.Size = new System.Drawing.Size(870, 653);
+            this.dtgvCategory.Size = new System.Drawing.Size(870, 584);
             this.dtgvCategory.TabIndex = 0;
+            // 
+            // cIDCategorym
+            // 
+            this.cIDCategorym.DataPropertyName = "ID";
+            this.cIDCategorym.HeaderText = "ID";
+            this.cIDCategorym.MinimumWidth = 6;
+            this.cIDCategorym.Name = "cIDCategorym";
+            this.cIDCategorym.Width = 125;
+            // 
+            // cNameCategory
+            // 
+            this.cNameCategory.DataPropertyName = "Name";
+            this.cNameCategory.HeaderText = "Tên danh mục";
+            this.cNameCategory.MinimumWidth = 6;
+            this.cNameCategory.Name = "cNameCategory";
+            this.cNameCategory.Width = 125;
             // 
             // tpFood
             // 
@@ -879,14 +1006,16 @@
             // 
             // txbSearchFoodName
             // 
+            this.txbSearchFoodName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSearchFoodName.Location = new System.Drawing.Point(6, 33);
             this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(6);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
-            this.txbSearchFoodName.Size = new System.Drawing.Size(394, 30);
+            this.txbSearchFoodName.Size = new System.Drawing.Size(394, 34);
             this.txbSearchFoodName.TabIndex = 5;
             // 
             // btnSearchFood
             // 
+            this.btnSearchFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchFood.Location = new System.Drawing.Point(416, 23);
             this.btnSearchFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearchFood.Name = "btnSearchFood";
@@ -905,7 +1034,7 @@
             this.panel5.Location = new System.Drawing.Point(925, 116);
             this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(570, 666);
+            this.panel5.Size = new System.Drawing.Size(570, 590);
             this.panel5.TabIndex = 2;
             // 
             // panel10
@@ -920,6 +1049,7 @@
             // 
             // nmFoodPrice
             // 
+            this.nmFoodPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmFoodPrice.Location = new System.Drawing.Point(182, 16);
             this.nmFoodPrice.Margin = new System.Windows.Forms.Padding(6);
             this.nmFoodPrice.Maximum = new decimal(new int[] {
@@ -928,17 +1058,17 @@
             0,
             0});
             this.nmFoodPrice.Name = "nmFoodPrice";
-            this.nmFoodPrice.Size = new System.Drawing.Size(370, 30);
+            this.nmFoodPrice.Size = new System.Drawing.Size(370, 34);
             this.nmFoodPrice.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.Location = new System.Drawing.Point(6, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 24);
+            this.label4.Size = new System.Drawing.Size(71, 33);
             this.label4.TabIndex = 0;
             this.label4.Text = "Giá:";
             // 
@@ -954,21 +1084,22 @@
             // 
             // cbFoodCategory
             // 
+            this.cbFoodCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFoodCategory.FormattingEnabled = true;
             this.cbFoodCategory.Location = new System.Drawing.Point(182, 17);
             this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(6);
             this.cbFoodCategory.Name = "cbFoodCategory";
-            this.cbFoodCategory.Size = new System.Drawing.Size(367, 33);
+            this.cbFoodCategory.Size = new System.Drawing.Size(367, 37);
             this.cbFoodCategory.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.Location = new System.Drawing.Point(6, 17);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 24);
+            this.label3.Size = new System.Drawing.Size(162, 33);
             this.label3.TabIndex = 0;
             this.label3.Text = "Danh mục:";
             // 
@@ -984,20 +1115,21 @@
             // 
             // txbFoodName
             // 
+            this.txbFoodName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFoodName.Location = new System.Drawing.Point(182, 16);
             this.txbFoodName.Margin = new System.Windows.Forms.Padding(6);
             this.txbFoodName.Name = "txbFoodName";
-            this.txbFoodName.Size = new System.Drawing.Size(367, 30);
+            this.txbFoodName.Size = new System.Drawing.Size(367, 34);
             this.txbFoodName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.Location = new System.Drawing.Point(6, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 24);
+            this.label2.Size = new System.Drawing.Size(144, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên món:";
             // 
@@ -1013,22 +1145,23 @@
             // 
             // txbFoodID
             // 
+            this.txbFoodID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFoodID.Location = new System.Drawing.Point(182, 16);
             this.txbFoodID.Margin = new System.Windows.Forms.Padding(6);
             this.txbFoodID.Name = "txbFoodID";
             this.txbFoodID.ReadOnly = true;
-            this.txbFoodID.Size = new System.Drawing.Size(367, 30);
+            this.txbFoodID.Size = new System.Drawing.Size(367, 34);
             this.txbFoodID.TabIndex = 1;
             this.txbFoodID.TextChanged += new System.EventHandler(this.txbFoodID_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 24);
+            this.label1.Size = new System.Drawing.Size(53, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
@@ -1046,6 +1179,7 @@
             // 
             // btnShowFood
             // 
+            this.btnShowFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowFood.Location = new System.Drawing.Point(718, 22);
             this.btnShowFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnShowFood.Name = "btnShowFood";
@@ -1057,6 +1191,7 @@
             // 
             // btnEditFood
             // 
+            this.btnEditFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditFood.Location = new System.Drawing.Point(496, 22);
             this.btnEditFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditFood.Name = "btnEditFood";
@@ -1068,6 +1203,7 @@
             // 
             // btnDeleteFood
             // 
+            this.btnDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteFood.Location = new System.Drawing.Point(261, 22);
             this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteFood.Name = "btnDeleteFood";
@@ -1079,6 +1215,7 @@
             // 
             // btnAddFood
             // 
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.Location = new System.Drawing.Point(29, 22);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddFood.Name = "btnAddFood";
@@ -1094,18 +1231,55 @@
             this.panel3.Location = new System.Drawing.Point(12, 117);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(901, 666);
+            this.panel3.Size = new System.Drawing.Size(901, 589);
             this.panel3.TabIndex = 0;
             // 
             // dtgvFood
             // 
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvFood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cIDFood,
+            this.cNameFood,
+            this.cIDCategory,
+            this.cPrice});
             this.dtgvFood.Location = new System.Drawing.Point(6, 6);
             this.dtgvFood.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.RowHeadersWidth = 62;
-            this.dtgvFood.Size = new System.Drawing.Size(889, 653);
+            this.dtgvFood.Size = new System.Drawing.Size(889, 577);
             this.dtgvFood.TabIndex = 0;
+            // 
+            // cIDFood
+            // 
+            this.cIDFood.DataPropertyName = "ID";
+            this.cIDFood.HeaderText = "ID";
+            this.cIDFood.MinimumWidth = 6;
+            this.cIDFood.Name = "cIDFood";
+            this.cIDFood.Width = 125;
+            // 
+            // cNameFood
+            // 
+            this.cNameFood.DataPropertyName = "Name";
+            this.cNameFood.HeaderText = "Tên món";
+            this.cNameFood.MinimumWidth = 6;
+            this.cNameFood.Name = "cNameFood";
+            this.cNameFood.Width = 125;
+            // 
+            // cIDCategory
+            // 
+            this.cIDCategory.DataPropertyName = "CategoryID";
+            this.cIDCategory.HeaderText = "ID danh mục";
+            this.cIDCategory.MinimumWidth = 6;
+            this.cIDCategory.Name = "cIDCategory";
+            this.cIDCategory.Width = 125;
+            // 
+            // cPrice
+            // 
+            this.cPrice.DataPropertyName = "Price";
+            this.cPrice.HeaderText = "Giá";
+            this.cPrice.MinimumWidth = 6;
+            this.cPrice.Name = "cPrice";
+            this.cPrice.Width = 125;
             // 
             // tpBill
             // 
@@ -1117,7 +1291,7 @@
             this.tpBill.Padding = new System.Windows.Forms.Padding(6);
             this.tpBill.Size = new System.Drawing.Size(1592, 862);
             this.tpBill.TabIndex = 0;
-            this.tpBill.Text = "Doanh thu";
+            this.tpBill.Text = "Thống kê";
             this.tpBill.UseVisualStyleBackColor = true;
             // 
             // panel2
@@ -1147,7 +1321,7 @@
             this.dtpkToDate.Location = new System.Drawing.Point(1049, 5);
             this.dtpkToDate.Margin = new System.Windows.Forms.Padding(6);
             this.dtpkToDate.Name = "dtpkToDate";
-            this.dtpkToDate.Size = new System.Drawing.Size(396, 30);
+            this.dtpkToDate.Size = new System.Drawing.Size(396, 34);
             this.dtpkToDate.TabIndex = 1;
             // 
             // dtpkFromDate
@@ -1155,7 +1329,7 @@
             this.dtpkFromDate.Location = new System.Drawing.Point(6, 6);
             this.dtpkFromDate.Margin = new System.Windows.Forms.Padding(6);
             this.dtpkFromDate.Name = "dtpkFromDate";
-            this.dtpkFromDate.Size = new System.Drawing.Size(396, 30);
+            this.dtpkFromDate.Size = new System.Drawing.Size(396, 34);
             this.dtpkFromDate.TabIndex = 0;
             // 
             // panel1
@@ -1169,16 +1343,16 @@
             this.panel1.Location = new System.Drawing.Point(12, 72);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1451, 709);
+            this.panel1.Size = new System.Drawing.Size(1451, 622);
             this.panel1.TabIndex = 0;
             // 
             // txbPageBill
             // 
-            this.txbPageBill.Location = new System.Drawing.Point(673, 666);
+            this.txbPageBill.Location = new System.Drawing.Point(673, 550);
             this.txbPageBill.Margin = new System.Windows.Forms.Padding(6);
             this.txbPageBill.Name = "txbPageBill";
             this.txbPageBill.ReadOnly = true;
-            this.txbPageBill.Size = new System.Drawing.Size(145, 30);
+            this.txbPageBill.Size = new System.Drawing.Size(145, 34);
             this.txbPageBill.TabIndex = 5;
             this.txbPageBill.Text = "1";
             this.txbPageBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1186,7 +1360,7 @@
             // 
             // btnNextBillPage
             // 
-            this.btnNextBillPage.Location = new System.Drawing.Point(1126, 659);
+            this.btnNextBillPage.Location = new System.Drawing.Point(1126, 543);
             this.btnNextBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnNextBillPage.Name = "btnNextBillPage";
             this.btnNextBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1197,7 +1371,7 @@
             // 
             // btnPrevioursBillPage
             // 
-            this.btnPrevioursBillPage.Location = new System.Drawing.Point(168, 659);
+            this.btnPrevioursBillPage.Location = new System.Drawing.Point(168, 543);
             this.btnPrevioursBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnPrevioursBillPage.Name = "btnPrevioursBillPage";
             this.btnPrevioursBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1208,7 +1382,7 @@
             // 
             // btnLastBillPage
             // 
-            this.btnLastBillPage.Location = new System.Drawing.Point(1295, 659);
+            this.btnLastBillPage.Location = new System.Drawing.Point(1295, 543);
             this.btnLastBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnLastBillPage.Name = "btnLastBillPage";
             this.btnLastBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1219,7 +1393,7 @@
             // 
             // btnFristBillPage
             // 
-            this.btnFristBillPage.Location = new System.Drawing.Point(6, 659);
+            this.btnFristBillPage.Location = new System.Drawing.Point(6, 543);
             this.btnFristBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnFristBillPage.Name = "btnFristBillPage";
             this.btnFristBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1236,7 +1410,7 @@
             this.dtgvBill.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowHeadersWidth = 62;
-            this.dtgvBill.Size = new System.Drawing.Size(1439, 644);
+            this.dtgvBill.Size = new System.Drawing.Size(1439, 505);
             this.dtgvBill.TabIndex = 0;
             // 
             // tcAdmin
@@ -1247,6 +1421,7 @@
             this.tcAdmin.Controls.Add(this.tpTable);
             this.tcAdmin.Controls.Add(this.tpAccount);
             this.tcAdmin.Controls.Add(this.tpStaff);
+            this.tcAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAdmin.Location = new System.Drawing.Point(24, 22);
             this.tcAdmin.Margin = new System.Windows.Forms.Padding(6);
             this.tcAdmin.Name = "tcAdmin";
@@ -1260,11 +1435,11 @@
             this.tpStaff.Controls.Add(this.panel31);
             this.tpStaff.Controls.Add(this.panel36);
             this.tpStaff.Controls.Add(this.dtgvStaff);
-            this.tpStaff.Location = new System.Drawing.Point(4, 34);
+            this.tpStaff.Location = new System.Drawing.Point(4, 38);
             this.tpStaff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpStaff.Size = new System.Drawing.Size(1592, 862);
+            this.tpStaff.Size = new System.Drawing.Size(1592, 858);
             this.tpStaff.TabIndex = 6;
             this.tpStaff.Text = "Nhân viên";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -1284,7 +1459,7 @@
             this.txbFindStaff.Location = new System.Drawing.Point(6, 33);
             this.txbFindStaff.Margin = new System.Windows.Forms.Padding(6);
             this.txbFindStaff.Name = "txbFindStaff";
-            this.txbFindStaff.Size = new System.Drawing.Size(394, 30);
+            this.txbFindStaff.Size = new System.Drawing.Size(394, 34);
             this.txbFindStaff.TabIndex = 5;
             // 
             // btnSearchStaff
@@ -1329,17 +1504,17 @@
             this.cbStatusStaff.Location = new System.Drawing.Point(182, 17);
             this.cbStatusStaff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbStatusStaff.Name = "cbStatusStaff";
-            this.cbStatusStaff.Size = new System.Drawing.Size(367, 33);
+            this.cbStatusStaff.Size = new System.Drawing.Size(367, 37);
             this.cbStatusStaff.TabIndex = 2;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label21.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label21.Location = new System.Drawing.Point(6, 17);
             this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(113, 24);
+            this.label21.Size = new System.Drawing.Size(160, 33);
             this.label21.TabIndex = 0;
             this.label21.Text = "Trạng thái:";
             // 
@@ -1358,17 +1533,17 @@
             this.txbSalary.Location = new System.Drawing.Point(182, 17);
             this.txbSalary.Margin = new System.Windows.Forms.Padding(6);
             this.txbSalary.Name = "txbSalary";
-            this.txbSalary.Size = new System.Drawing.Size(367, 30);
+            this.txbSalary.Size = new System.Drawing.Size(367, 34);
             this.txbSalary.TabIndex = 2;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label20.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label20.Location = new System.Drawing.Point(6, 17);
             this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 24);
+            this.label20.Size = new System.Drawing.Size(116, 33);
             this.label20.TabIndex = 0;
             this.label20.Text = "Lương:";
             // 
@@ -1387,17 +1562,17 @@
             this.txbSex.Location = new System.Drawing.Point(182, 17);
             this.txbSex.Margin = new System.Windows.Forms.Padding(6);
             this.txbSex.Name = "txbSex";
-            this.txbSex.Size = new System.Drawing.Size(367, 30);
+            this.txbSex.Size = new System.Drawing.Size(367, 34);
             this.txbSex.TabIndex = 2;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label19.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label19.Location = new System.Drawing.Point(6, 17);
             this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(100, 24);
+            this.label19.Size = new System.Drawing.Size(142, 33);
             this.label19.TabIndex = 0;
             this.label19.Text = "Giới tính:";
             // 
@@ -1416,17 +1591,17 @@
             this.txbAddress.Location = new System.Drawing.Point(180, 17);
             this.txbAddress.Margin = new System.Windows.Forms.Padding(6);
             this.txbAddress.Name = "txbAddress";
-            this.txbAddress.Size = new System.Drawing.Size(367, 30);
+            this.txbAddress.Size = new System.Drawing.Size(367, 34);
             this.txbAddress.TabIndex = 2;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label15.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label15.Location = new System.Drawing.Point(6, 17);
             this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 24);
+            this.label15.Size = new System.Drawing.Size(118, 33);
             this.label15.TabIndex = 0;
             this.label15.Text = "Địa chỉ:";
             // 
@@ -1445,17 +1620,17 @@
             this.txbPhone.Location = new System.Drawing.Point(180, 17);
             this.txbPhone.Margin = new System.Windows.Forms.Padding(6);
             this.txbPhone.Name = "txbPhone";
-            this.txbPhone.Size = new System.Drawing.Size(367, 30);
+            this.txbPhone.Size = new System.Drawing.Size(367, 34);
             this.txbPhone.TabIndex = 2;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label16.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label16.Location = new System.Drawing.Point(6, 17);
             this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 24);
+            this.label16.Size = new System.Drawing.Size(79, 33);
             this.label16.TabIndex = 0;
             this.label16.Text = "SĐT:";
             // 
@@ -1475,17 +1650,17 @@
             this.cbNameStafff.Location = new System.Drawing.Point(182, 17);
             this.cbNameStafff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbNameStafff.Name = "cbNameStafff";
-            this.cbNameStafff.Size = new System.Drawing.Size(367, 33);
+            this.cbNameStafff.Size = new System.Drawing.Size(367, 37);
             this.cbNameStafff.TabIndex = 2;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label17.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label17.Location = new System.Drawing.Point(6, 17);
             this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 24);
+            this.label17.Size = new System.Drawing.Size(112, 33);
             this.label17.TabIndex = 0;
             this.label17.Text = "Họ tên:";
             // 
@@ -1505,17 +1680,17 @@
             this.txbIDStaff.Margin = new System.Windows.Forms.Padding(6);
             this.txbIDStaff.Name = "txbIDStaff";
             this.txbIDStaff.ReadOnly = true;
-            this.txbIDStaff.Size = new System.Drawing.Size(367, 30);
+            this.txbIDStaff.Size = new System.Drawing.Size(367, 34);
             this.txbIDStaff.TabIndex = 1;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label18.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label18.Location = new System.Drawing.Point(6, 17);
             this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 24);
+            this.label18.Size = new System.Drawing.Size(53, 33);
             this.label18.TabIndex = 0;
             this.label18.Text = "ID:";
             // 
@@ -1590,12 +1765,76 @@
             // dtgvStaff
             // 
             this.dtgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cStaffID,
+            this.cStaffName,
+            this.cPhone,
+            this.cAddress,
+            this.cSex,
+            this.cStaffStatus,
+            this.cSalary});
             this.dtgvStaff.Location = new System.Drawing.Point(14, 119);
             this.dtgvStaff.Margin = new System.Windows.Forms.Padding(6);
             this.dtgvStaff.Name = "dtgvStaff";
             this.dtgvStaff.RowHeadersWidth = 62;
-            this.dtgvStaff.Size = new System.Drawing.Size(853, 669);
+            this.dtgvStaff.Size = new System.Drawing.Size(853, 564);
             this.dtgvStaff.TabIndex = 4;
+            // 
+            // cStaffID
+            // 
+            this.cStaffID.DataPropertyName = "Id";
+            this.cStaffID.HeaderText = "ID";
+            this.cStaffID.MinimumWidth = 6;
+            this.cStaffID.Name = "cStaffID";
+            this.cStaffID.Width = 50;
+            // 
+            // cStaffName
+            // 
+            this.cStaffName.DataPropertyName = "Name";
+            this.cStaffName.HeaderText = "Họ tên";
+            this.cStaffName.MinimumWidth = 6;
+            this.cStaffName.Name = "cStaffName";
+            this.cStaffName.Width = 150;
+            // 
+            // cPhone
+            // 
+            this.cPhone.DataPropertyName = "Sdt";
+            this.cPhone.HeaderText = "Số điện thoại";
+            this.cPhone.MinimumWidth = 6;
+            this.cPhone.Name = "cPhone";
+            this.cPhone.Width = 125;
+            // 
+            // cAddress
+            // 
+            this.cAddress.DataPropertyName = "Address";
+            this.cAddress.HeaderText = "Địa chỉ";
+            this.cAddress.MinimumWidth = 6;
+            this.cAddress.Name = "cAddress";
+            this.cAddress.Width = 125;
+            // 
+            // cSex
+            // 
+            this.cSex.DataPropertyName = "Sex";
+            this.cSex.HeaderText = "Giới tính";
+            this.cSex.MinimumWidth = 6;
+            this.cSex.Name = "cSex";
+            this.cSex.Width = 125;
+            // 
+            // cStaffStatus
+            // 
+            this.cStaffStatus.DataPropertyName = "Status";
+            this.cStaffStatus.HeaderText = "Trạng thái";
+            this.cStaffStatus.MinimumWidth = 6;
+            this.cStaffStatus.Name = "cStaffStatus";
+            this.cStaffStatus.Width = 125;
+            // 
+            // cSalary
+            // 
+            this.cSalary.DataPropertyName = "Salary";
+            this.cSalary.HeaderText = "Lương";
+            this.cSalary.MinimumWidth = 6;
+            this.cSalary.Name = "cSalary";
+            this.cSalary.Width = 125;
             // 
             // QuanLyQuanCafeDataSet2
             // 
@@ -1854,5 +2093,27 @@
         private System.Windows.Forms.Button btnAddStaff;
         private System.Windows.Forms.DataGridView dtgvStaff;
         private System.Windows.Forms.Button btnNhapLai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDFood;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameFood;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDisplayName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStatusTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDCategorym;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStaffID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStaffName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStaffStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSalary;
     }
 }

@@ -100,11 +100,6 @@ namespace QuanLyQuanCafe.DAO
         }
         public bool DeleteFoodByIdCategory(int idCategory)
         {
-            /*try
-            {
-                BillInfoDAO.Instance.DeleteBillInfoByFoodID(id);
-            }
-            catch { }*/
             string query = string.Format("Delete Food where id_category = {0}", idCategory);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
