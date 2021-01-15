@@ -38,7 +38,18 @@ namespace QuanLyQuanCafe.DAO
 
             return -1;
         }
+        public int SumBill(DateTime checkIn, DateTime checkOut)
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("select dbo.tongtien1 (" + "'" + checkIn + "'" + "," + "'" + checkOut + "'" + ");");
+            }
+            catch
+            {
+                return 0;//tổng bằng null
+            }
 
+        }
         public void CheckOut(int id, int discount, int totalPrice, int id_table)
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateBill @id  , @discount  , @totalPrice , @id_table", new object[] { id, discount, totalPrice, id_table });

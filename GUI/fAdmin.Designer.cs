@@ -153,7 +153,6 @@
             this.txbSalary = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.txbSex = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.txbAddress = new System.Windows.Forms.TextBox();
@@ -185,6 +184,9 @@
             this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
             this.tableAdapterManager1 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager();
+            this.txbSum = new System.Windows.Forms.TextBox();
+            this.exportPDF = new System.Windows.Forms.Button();
+            this.cbSex = new System.Windows.Forms.ComboBox();
             this.tpAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -985,11 +987,11 @@
             this.tpFood.Controls.Add(this.panel5);
             this.tpFood.Controls.Add(this.panel4);
             this.tpFood.Controls.Add(this.panel3);
-            this.tpFood.Location = new System.Drawing.Point(4, 34);
+            this.tpFood.Location = new System.Drawing.Point(4, 38);
             this.tpFood.Margin = new System.Windows.Forms.Padding(6);
             this.tpFood.Name = "tpFood";
             this.tpFood.Padding = new System.Windows.Forms.Padding(6);
-            this.tpFood.Size = new System.Drawing.Size(1592, 862);
+            this.tpFood.Size = new System.Drawing.Size(1592, 858);
             this.tpFood.TabIndex = 1;
             this.tpFood.Text = "Món";
             this.tpFood.UseVisualStyleBackColor = true;
@@ -1285,17 +1287,18 @@
             // 
             this.tpBill.Controls.Add(this.panel2);
             this.tpBill.Controls.Add(this.panel1);
-            this.tpBill.Location = new System.Drawing.Point(4, 34);
+            this.tpBill.Location = new System.Drawing.Point(4, 38);
             this.tpBill.Margin = new System.Windows.Forms.Padding(6);
             this.tpBill.Name = "tpBill";
             this.tpBill.Padding = new System.Windows.Forms.Padding(6);
-            this.tpBill.Size = new System.Drawing.Size(1592, 862);
+            this.tpBill.Size = new System.Drawing.Size(1592, 858);
             this.tpBill.TabIndex = 0;
             this.tpBill.Text = "Thống kê";
             this.tpBill.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.exportPDF);
             this.panel2.Controls.Add(this.btnViewBill);
             this.panel2.Controls.Add(this.dtpkToDate);
             this.panel2.Controls.Add(this.dtpkFromDate);
@@ -1307,7 +1310,7 @@
             // 
             // btnViewBill
             // 
-            this.btnViewBill.Location = new System.Drawing.Point(673, 1);
+            this.btnViewBill.Location = new System.Drawing.Point(764, 1);
             this.btnViewBill.Margin = new System.Windows.Forms.Padding(6);
             this.btnViewBill.Name = "btnViewBill";
             this.btnViewBill.Size = new System.Drawing.Size(150, 44);
@@ -1331,9 +1334,11 @@
             this.dtpkFromDate.Name = "dtpkFromDate";
             this.dtpkFromDate.Size = new System.Drawing.Size(396, 34);
             this.dtpkFromDate.TabIndex = 0;
+            this.dtpkFromDate.ValueChanged += new System.EventHandler(this.dtpkFromDate_ValueChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txbSum);
             this.panel1.Controls.Add(this.txbPageBill);
             this.panel1.Controls.Add(this.btnNextBillPage);
             this.panel1.Controls.Add(this.btnPrevioursBillPage);
@@ -1343,12 +1348,12 @@
             this.panel1.Location = new System.Drawing.Point(12, 72);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1451, 622);
+            this.panel1.Size = new System.Drawing.Size(1451, 648);
             this.panel1.TabIndex = 0;
             // 
             // txbPageBill
             // 
-            this.txbPageBill.Location = new System.Drawing.Point(673, 550);
+            this.txbPageBill.Location = new System.Drawing.Point(673, 598);
             this.txbPageBill.Margin = new System.Windows.Forms.Padding(6);
             this.txbPageBill.Name = "txbPageBill";
             this.txbPageBill.ReadOnly = true;
@@ -1360,7 +1365,7 @@
             // 
             // btnNextBillPage
             // 
-            this.btnNextBillPage.Location = new System.Drawing.Point(1126, 543);
+            this.btnNextBillPage.Location = new System.Drawing.Point(1126, 591);
             this.btnNextBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnNextBillPage.Name = "btnNextBillPage";
             this.btnNextBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1371,7 +1376,7 @@
             // 
             // btnPrevioursBillPage
             // 
-            this.btnPrevioursBillPage.Location = new System.Drawing.Point(168, 543);
+            this.btnPrevioursBillPage.Location = new System.Drawing.Point(168, 591);
             this.btnPrevioursBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnPrevioursBillPage.Name = "btnPrevioursBillPage";
             this.btnPrevioursBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1382,7 +1387,7 @@
             // 
             // btnLastBillPage
             // 
-            this.btnLastBillPage.Location = new System.Drawing.Point(1295, 543);
+            this.btnLastBillPage.Location = new System.Drawing.Point(1295, 591);
             this.btnLastBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnLastBillPage.Name = "btnLastBillPage";
             this.btnLastBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1393,7 +1398,7 @@
             // 
             // btnFristBillPage
             // 
-            this.btnFristBillPage.Location = new System.Drawing.Point(6, 543);
+            this.btnFristBillPage.Location = new System.Drawing.Point(6, 591);
             this.btnFristBillPage.Margin = new System.Windows.Forms.Padding(6);
             this.btnFristBillPage.Name = "btnFristBillPage";
             this.btnFristBillPage.Size = new System.Drawing.Size(150, 44);
@@ -1549,21 +1554,13 @@
             // 
             // panel37
             // 
-            this.panel37.Controls.Add(this.txbSex);
+            this.panel37.Controls.Add(this.cbSex);
             this.panel37.Controls.Add(this.label19);
             this.panel37.Location = new System.Drawing.Point(6, 323);
             this.panel37.Margin = new System.Windows.Forms.Padding(6);
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(558, 66);
             this.panel37.TabIndex = 5;
-            // 
-            // txbSex
-            // 
-            this.txbSex.Location = new System.Drawing.Point(182, 17);
-            this.txbSex.Margin = new System.Windows.Forms.Padding(6);
-            this.txbSex.Name = "txbSex";
-            this.txbSex.Size = new System.Drawing.Size(367, 34);
-            this.txbSex.TabIndex = 2;
             // 
             // label19
             // 
@@ -1856,6 +1853,37 @@
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.UpdateOrder = QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txbSum
+            // 
+            this.txbSum.Location = new System.Drawing.Point(673, 532);
+            this.txbSum.Name = "txbSum";
+            this.txbSum.Size = new System.Drawing.Size(100, 34);
+            this.txbSum.TabIndex = 6;
+            // 
+            // exportPDF
+            // 
+            this.exportPDF.Location = new System.Drawing.Point(586, 1);
+            this.exportPDF.Margin = new System.Windows.Forms.Padding(6);
+            this.exportPDF.Name = "exportPDF";
+            this.exportPDF.Size = new System.Drawing.Size(150, 44);
+            this.exportPDF.TabIndex = 4;
+            this.exportPDF.Text = "Thống kê";
+            this.exportPDF.UseVisualStyleBackColor = true;
+            this.exportPDF.Click += new System.EventHandler(this.exportPDF_Click);
+            // 
+            // cbSex
+            // 
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.cbSex.Location = new System.Drawing.Point(182, 16);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(367, 37);
+            this.cbSex.TabIndex = 3;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -2072,7 +2100,6 @@
         private System.Windows.Forms.TextBox txbSalary;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.TextBox txbSex;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.TextBox txbAddress;
@@ -2115,5 +2142,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn cStaffStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSalary;
+        private System.Windows.Forms.TextBox txbSum;
+        private System.Windows.Forms.Button exportPDF;
+        private System.Windows.Forms.ComboBox cbSex;
     }
 }

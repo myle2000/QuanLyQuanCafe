@@ -1,4 +1,6 @@
-﻿using QuanLyQuanCafe.DAO;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using QuanLyQuanCafe.DAO;
 using QuanLyQuanCafe.DTO;
 using System;
 using System.Collections.Generic;
@@ -6,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -47,11 +50,13 @@ namespace QuanLyQuanCafe
             LoadListTable();
             LoadListStaff();
             LoadCbStatus();
+            LoadSumBill();
             AddFoodBinding();
             AddAccountBinding();
             AddCategoryBinding();
             AddTableBinding();
-            AddStaffBiding(); 
+            AddStaffBiding();
+
         }
         void LoadCbStatus()
         {
@@ -60,7 +65,10 @@ namespace QuanLyQuanCafe
             cbStatusStaff.Items.Add(0);
             cbStatusStaff.Items.Add(1);
         }
-
+        void LoadSumBill()
+        {
+            txbSum.Text = BillDAO.Instance.SumBill(dtpkFromDate.Value.AddMonths(0).AddDays(-1), dtpkToDate.Value.AddMonths(0).AddDays(1)).ToString();
+        }
         void AddAccountBinding()
         {
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
@@ -92,7 +100,7 @@ namespace QuanLyQuanCafe
             txbIDStaff.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Id", true, DataSourceUpdateMode.Never));
             txbPhone.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Sdt", true, DataSourceUpdateMode.Never));
             txbAddress.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Address", true, DataSourceUpdateMode.Never));
-            txbSex.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Sex", true, DataSourceUpdateMode.Never));
+            cbSex.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Sex", true, DataSourceUpdateMode.Never));
             txbSalary.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Salary", true, DataSourceUpdateMode.Never));
             cbStatusStaff.DataBindings.Add(new Binding("Text", dtgvStaff.DataSource, "Status", true, DataSourceUpdateMode.Never));
         }
@@ -362,17 +370,21 @@ namespace QuanLyQuanCafe
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbFoodID.Text);
-            if (MessageBox.Show("Bạn có chắc muốn xóa món này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            try
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa món này không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 
-                if (FoodDAO.Instance.DeleteFood(id))
-                {
-                    MessageBox.Show("Xóa món thành công");
-                    LoadListFood();
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi khi xóa món");
-                }
+                    if (FoodDAO.Instance.DeleteFood(id))
+                    {
+                        MessageBox.Show("Xóa món thành công");
+                        LoadListFood();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi khi xóa món");
+                    }
+            }
+            catch { MessageBox.Show("Không thể xóa món!"); }
         }
         private void btnShowFood_Click(object sender, EventArgs e)
         {
@@ -625,7 +637,10 @@ namespace QuanLyQuanCafe
                         LoadListStaff();
                     }
         }
-
+        /*public static bool IsPhoneNumber(string number)
+        {
+            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+        }*/
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             string name = cbNameStafff.Text;
@@ -646,7 +661,7 @@ namespace QuanLyQuanCafe
             }
             string phone = txbPhone.Text;
             string address = txbAddress.Text;
-            string sex = txbSex.Text;
+            string sex = cbSex.SelectedItem.ToString();
             int salary = Int32.Parse(txbSalary.Text);
             int status = Int32.Parse(cbStatusStaff.SelectedItem.ToString());
 
@@ -662,7 +677,7 @@ namespace QuanLyQuanCafe
             string name = cbNameStafff.Text;
             string phone = txbPhone.Text;
             string address = txbAddress.Text;
-            string sex = txbSex.Text;
+            string sex = cbSex.SelectedItem.ToString();
             int salary = Convert.ToInt32(txbSalary.Text);
             List<Staff> StaffList = StaffDAO.Instance.GetListStaff();
             foreach (Staff item in StaffList)
@@ -709,11 +724,133 @@ namespace QuanLyQuanCafe
             txbPass.Text = "";
             txbPhone.Text = "";
             txbSalary.Text = "";
-            txbSex.Text = "";
+            cbSex.Text = "";
             cbNameStafff.Text = "";
             cbStatusStaff.Text = "";
             txbAddress.Text = "";
         }
 
+        private void dtpkFromDate_ValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("You are in the DateTimePicker.ValueChanged event.");
+            LoadSumBill();
+        }
+
+        private void dtpkToDate_ValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("You are in the DateTimePicker.ValueChanged event.");
+            LoadSumBill();
+        }
+
+        private void exportPDF_Click(object sender, EventArgs e)
+        {
+            BaseFont bf = BaseFont.CreateFont("c:\\fonts\\vuArial.ttf",
+                                   BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            // khỏi tạo font chữ
+            iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 15);
+            if (dtgvBill.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Không thể ghi dữ liệu tới ổ đĩa. Mô tả lỗi:" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dtgvBill.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+
+                            foreach (DataGridViewColumn column in dtgvBill.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, font));
+                                pdfTable.AddCell(cell);
+
+                            }
+
+                            foreach (DataGridViewRow row in dtgvBill.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.Value != null)
+                                    {
+                                        PdfPCell t = new PdfPCell(new Phrase(cell.Value.ToString(), font));
+                                        pdfTable.AddCell(t);
+                                    }
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+
+                                Paragraph nameShop = new Paragraph("Cafe Sinh viên", font);
+                                nameShop.Alignment = Element.ALIGN_LEFT;
+                                pdfDoc.Add(nameShop);
+                                pdfDoc.Add(new Paragraph("\n"));
+
+                                Paragraph addrShop = new Paragraph("Địa chỉ: 1-Võ Văn Ngân, Linh Trung, Thủ Đức", font);
+                                addrShop.Alignment = Element.ALIGN_LEFT;
+                                pdfDoc.Add(addrShop);
+                                pdfDoc.Add(new Paragraph("\n"));
+
+                                Paragraph telShop = new Paragraph("Số điện thoại: 099", font);
+                                telShop.Alignment = Element.ALIGN_LEFT;
+                                pdfDoc.Add(telShop);
+                                pdfDoc.Add(new Paragraph("\n"));
+
+                                Paragraph numberBill = new Paragraph("Số lượng hóa đơn:", font);
+                                numberBill.Alignment = Element.ALIGN_LEFT;
+                                pdfDoc.Add(numberBill);
+                                pdfDoc.Add(new Paragraph("\n"));
+
+                                Paragraph totalMoney = new Paragraph("Tổng thu:", font);
+                                totalMoney.Alignment = Element.ALIGN_LEFT;
+                                pdfDoc.Add(totalMoney);
+                                pdfDoc.Add(new Paragraph("\n"));
+
+                                Paragraph para = new Paragraph("Thống kê " + dtpkFromDate.Value.ToString("dd/MM/yyyy hh:mm:ss") + " đến " + dtpkToDate.Value.ToString("dd/MM/yyyy hh:mm:ss"), font);
+                                para.Alignment = Element.ALIGN_CENTER;
+                                pdfDoc.Add(para);
+                                pdfDoc.Add(new Paragraph("\n"));
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Dữ liệu Export thành công!!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Mô tả lỗi :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có bản ghi nào được Export!!!", "Info");
+            }
+        }
     }
+ 
 }

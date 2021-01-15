@@ -89,11 +89,6 @@ namespace QuanLyQuanCafe.DAO
 
         public bool DeleteFood(int idFood)
         {
-            try
-            {
-                BillInfoDAO.Instance.DeleteBillInfoByFoodID(idFood);
-            }
-            catch { }
             string query = string.Format("Delete Food where id = {0}",idFood);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;

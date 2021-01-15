@@ -47,6 +47,17 @@ namespace QuanLyQuanCafe.DAO
         {
             DataProvider.Instance.ExecuteQuery("delete from BILL_inf WHERE id_bill= "+ bill_id + " and id_food= " + food_id);
         }
-
+        public DataTable GetListBillInfByIDBill(int id_bill)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillInfByIDBill @id_bill", new object[] { id_bill });
+        }
+        public DateTime GetDateCheckOut(int id_bill)
+        {
+            return (DateTime)DataProvider.Instance.ExecuteScalar("SELECT dayCheckOut FROM BILL WHERE id=" + id_bill);
+        }
+        public String GetNameEmp(int id_bill)
+        {
+            return (String)DataProvider.Instance.ExecuteScalar("SELECT s.name FROM BILL b, STAFF s WHERE b.id_staff=s.id and b.id=" + id_bill);
+        }
     }
 }

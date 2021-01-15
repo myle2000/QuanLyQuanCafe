@@ -98,10 +98,9 @@ namespace QuanLyQuanCafe
                 lsvBill.Items.Add(lsvItem);
             }
             CultureInfo culture = new CultureInfo("vi-VN");
-
-            //Thread.CurrentThread.CurrentCulture = culture;
-
-            txbTotalPrice.Text = totalPrice.ToString("c", culture);
+            txbTamTinh.Text = totalPrice.ToString("c", culture);
+            //txbDiscount.Text = Int32.Parse(txbDiscount.Text).ToString("c", culture);
+            txbTongCong.Text= (totalPrice - Int32.Parse(txbDiscount.Text)*1000).ToString("c", culture);
 
         }
 
@@ -207,7 +206,6 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Hãy chọn bàn");
                 return;
             }
-
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int foodID = (cbFood.SelectedItem as Food).ID;
             int count = (int)nmFoodCount.Value;
@@ -223,7 +221,6 @@ namespace QuanLyQuanCafe
             }
 
             ShowBill(table.ID);
-
             LoadTable();
         }
         private void btnDelFood_Click(object sender, EventArgs e)
@@ -258,16 +255,20 @@ namespace QuanLyQuanCafe
             Table table = lsvBill.Tag as Table;
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
-            int discount = (int)nmDisCount.Value;
+            int discount = Int32.Parse(txbDiscount.Text);
  
-            double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
+            double totalPrice = Convert.ToDouble(txbTamTinh.Text.Split(',')[0]);
             double finalTotalPrice = totalPrice - discount;
-
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn cần thanh toán!");
+                return;
+            }
             if (idBill != -1)
             {
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0} với giảm giá {1}.000đ. Tổng thanh toán =  {2}.000đ ", table.Name, discount,finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount, (int)finalTotalPrice, table.ID);
+                    BillDAO.Instance.CheckOut(idBill, discount, (int)finalTotalPrice*1000, table.ID);
                     ShowBill(table.ID);
 
                     LoadTable();
@@ -278,6 +279,12 @@ namespace QuanLyQuanCafe
         {           
             int id1 = (lsvBill.Tag as Table).ID;
             int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+            Table table = lsvBill.Tag as Table;
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
             if ((lsvBill.Tag as Table).Status =="0")
             {
                 MessageBox.Show("Bàn đã trống, không cần chuyển!");
@@ -332,6 +339,36 @@ namespace QuanLyQuanCafe
         {
             this.helpProvider1.SetShowHelp(this.textBox1, true);
             this.helpProvider1.SetHelpString(this.textBox1, "Ctrl + A de thanh toan \n Ctrl + B de them mon");
+        }
+
+        private void btnBillinf_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn cần thanh toán!");
+                return;
+            }
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int discount = Int32.Parse(txbDiscount.Text);
+            double totalPrice = Convert.ToDouble(txbTamTinh.Text.Split(',')[0]);
+            double finalTotalPrice = (totalPrice - discount) * 1000;
+            fBillDetails f = new fBillDetails(idBill, (int)finalTotalPrice, discount*1000, (int)totalPrice*1000);
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void txbTotalPrice_TextChanged(object sender, EventArgs e)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            txbTongCong.Text = (Convert.ToDouble(txbTamTinh.Text.Split(',')[0])*1000 - Int32.Parse(txbDiscount.Text)*1000).ToString("c", culture);
+        }
+
+        private void txbDiscount_TextChanged(object sender, EventArgs e)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            txbTongCong.Text = (Convert.ToDouble(txbTamTinh.Text.Split(',')[0])*1000 - Int32.Parse(txbDiscount.Text)*1000).ToString("c", culture);
         }
     }
 }
