@@ -130,10 +130,13 @@
             this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.exportPDF = new System.Windows.Forms.Button();
             this.btnViewBill = new System.Windows.Forms.Button();
             this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txbSum = new System.Windows.Forms.TextBox();
             this.txbPageBill = new System.Windows.Forms.TextBox();
             this.btnNextBillPage = new System.Windows.Forms.Button();
             this.btnPrevioursBillPage = new System.Windows.Forms.Button();
@@ -153,6 +156,7 @@
             this.txbSalary = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.cbSex = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.txbAddress = new System.Windows.Forms.TextBox();
@@ -184,9 +188,7 @@
             this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.USP_GetListBillByDateForReportTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.USP_GetListBillByDateForReportTableAdapter();
             this.tableAdapterManager1 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager();
-            this.txbSum = new System.Windows.Forms.TextBox();
-            this.exportPDF = new System.Windows.Forms.Button();
-            this.cbSex = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tpAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -1308,6 +1310,17 @@
             this.panel2.Size = new System.Drawing.Size(1451, 50);
             this.panel2.TabIndex = 1;
             // 
+            // exportPDF
+            // 
+            this.exportPDF.Location = new System.Drawing.Point(586, 1);
+            this.exportPDF.Margin = new System.Windows.Forms.Padding(6);
+            this.exportPDF.Name = "exportPDF";
+            this.exportPDF.Size = new System.Drawing.Size(150, 44);
+            this.exportPDF.TabIndex = 4;
+            this.exportPDF.Text = "Thống kê";
+            this.exportPDF.UseVisualStyleBackColor = true;
+            this.exportPDF.Click += new System.EventHandler(this.exportPDF_Click);
+            // 
             // btnViewBill
             // 
             this.btnViewBill.Location = new System.Drawing.Point(764, 1);
@@ -1338,6 +1351,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.txbSum);
             this.panel1.Controls.Add(this.txbPageBill);
             this.panel1.Controls.Add(this.btnNextBillPage);
@@ -1350,6 +1365,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1451, 648);
             this.panel1.TabIndex = 0;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(375, 537);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(142, 32);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "Tổng tiền:";
+            // 
+            // txbSum
+            // 
+            this.txbSum.Location = new System.Drawing.Point(544, 535);
+            this.txbSum.Name = "txbSum";
+            this.txbSum.Size = new System.Drawing.Size(202, 34);
+            this.txbSum.TabIndex = 6;
+            this.txbSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txbPageBill
             // 
@@ -1561,6 +1594,19 @@
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(558, 66);
             this.panel37.TabIndex = 5;
+            // 
+            // cbSex
+            // 
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.cbSex.Location = new System.Drawing.Point(182, 16);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(367, 37);
+            this.cbSex.TabIndex = 3;
             // 
             // label19
             // 
@@ -1853,36 +1899,14 @@
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.UpdateOrder = QuanLyQuanCafe.QuanLyQuanCafeDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // txbSum
+            // label23
             // 
-            this.txbSum.Location = new System.Drawing.Point(673, 532);
-            this.txbSum.Name = "txbSum";
-            this.txbSum.Size = new System.Drawing.Size(100, 34);
-            this.txbSum.TabIndex = 6;
-            // 
-            // exportPDF
-            // 
-            this.exportPDF.Location = new System.Drawing.Point(586, 1);
-            this.exportPDF.Margin = new System.Windows.Forms.Padding(6);
-            this.exportPDF.Name = "exportPDF";
-            this.exportPDF.Size = new System.Drawing.Size(150, 44);
-            this.exportPDF.TabIndex = 4;
-            this.exportPDF.Text = "Thống kê";
-            this.exportPDF.UseVisualStyleBackColor = true;
-            this.exportPDF.Click += new System.EventHandler(this.exportPDF_Click);
-            // 
-            // cbSex
-            // 
-            this.cbSex.FormattingEnabled = true;
-            this.cbSex.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
-            this.cbSex.Location = new System.Drawing.Point(182, 16);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(367, 37);
-            this.cbSex.TabIndex = 3;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(752, 540);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(27, 29);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "đ";
             // 
             // fAdmin
             // 
@@ -2145,5 +2169,7 @@
         private System.Windows.Forms.TextBox txbSum;
         private System.Windows.Forms.Button exportPDF;
         private System.Windows.Forms.ComboBox cbSex;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

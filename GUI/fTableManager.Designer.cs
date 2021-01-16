@@ -45,6 +45,12 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txbDiscount = new System.Windows.Forms.TextBox();
+            this.txbTongCong = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBillinf = new System.Windows.Forms.Button();
             this.txbTamTinh = new System.Windows.Forms.TextBox();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
@@ -58,12 +64,6 @@
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBillinf = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbTongCong = new System.Windows.Forms.TextBox();
-            this.txbDiscount = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -226,6 +226,73 @@
             this.panel3.Size = new System.Drawing.Size(898, 169);
             this.panel3.TabIndex = 3;
             // 
+            // txbDiscount
+            // 
+            this.txbDiscount.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txbDiscount.ForeColor = System.Drawing.Color.Black;
+            this.txbDiscount.Location = new System.Drawing.Point(543, 63);
+            this.txbDiscount.Margin = new System.Windows.Forms.Padding(6);
+            this.txbDiscount.Name = "txbDiscount";
+            this.txbDiscount.Size = new System.Drawing.Size(176, 39);
+            this.txbDiscount.TabIndex = 14;
+            this.txbDiscount.Text = "0";
+            this.txbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txbDiscount.TextChanged += new System.EventHandler(this.txbDiscount_TextChanged);
+            // 
+            // txbTongCong
+            // 
+            this.txbTongCong.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txbTongCong.ForeColor = System.Drawing.Color.OrangeRed;
+            this.txbTongCong.Location = new System.Drawing.Point(543, 110);
+            this.txbTongCong.Margin = new System.Windows.Forms.Padding(6);
+            this.txbTongCong.Name = "txbTongCong";
+            this.txbTongCong.ReadOnly = true;
+            this.txbTongCong.Size = new System.Drawing.Size(176, 39);
+            this.txbTongCong.TabIndex = 13;
+            this.txbTongCong.Text = "0";
+            this.txbTongCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(357, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 32);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Tổng cộng:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(357, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 32);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Giảm giá:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(357, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 32);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Tạm tính:";
+            // 
+            // btnBillinf
+            // 
+            this.btnBillinf.Location = new System.Drawing.Point(731, 86);
+            this.btnBillinf.Margin = new System.Windows.Forms.Padding(6);
+            this.btnBillinf.Name = "btnBillinf";
+            this.btnBillinf.Size = new System.Drawing.Size(150, 45);
+            this.btnBillinf.TabIndex = 9;
+            this.btnBillinf.Text = "In hóa đơn";
+            this.btnBillinf.UseVisualStyleBackColor = true;
+            this.btnBillinf.Click += new System.EventHandler(this.btnBillinf_Click);
+            // 
             // txbTamTinh
             // 
             this.txbTamTinh.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -244,7 +311,7 @@
             // 
             this.cbSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSwitchTable.FormattingEnabled = true;
-            this.cbSwitchTable.Location = new System.Drawing.Point(6, 60);
+            this.cbSwitchTable.Location = new System.Drawing.Point(6, 92);
             this.cbSwitchTable.Margin = new System.Windows.Forms.Padding(6);
             this.cbSwitchTable.Name = "cbSwitchTable";
             this.cbSwitchTable.Size = new System.Drawing.Size(145, 39);
@@ -253,7 +320,7 @@
             // btnSwitchTable
             // 
             this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitchTable.Location = new System.Drawing.Point(6, 4);
+            this.btnSwitchTable.Location = new System.Drawing.Point(6, 30);
             this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(6);
             this.btnSwitchTable.Name = "btnSwitchTable";
             this.btnSwitchTable.Size = new System.Drawing.Size(145, 50);
@@ -369,73 +436,6 @@
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "?";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnBillinf
-            // 
-            this.btnBillinf.Location = new System.Drawing.Point(731, 86);
-            this.btnBillinf.Margin = new System.Windows.Forms.Padding(6);
-            this.btnBillinf.Name = "btnBillinf";
-            this.btnBillinf.Size = new System.Drawing.Size(150, 45);
-            this.btnBillinf.TabIndex = 9;
-            this.btnBillinf.Text = "In hóa đơn";
-            this.btnBillinf.UseVisualStyleBackColor = true;
-            this.btnBillinf.Click += new System.EventHandler(this.btnBillinf_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(371, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Tạm tính:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(371, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 32);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Giảm giá:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(371, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 32);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Tổng cộng:";
-            // 
-            // txbTongCong
-            // 
-            this.txbTongCong.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txbTongCong.ForeColor = System.Drawing.Color.OrangeRed;
-            this.txbTongCong.Location = new System.Drawing.Point(543, 110);
-            this.txbTongCong.Margin = new System.Windows.Forms.Padding(6);
-            this.txbTongCong.Name = "txbTongCong";
-            this.txbTongCong.ReadOnly = true;
-            this.txbTongCong.Size = new System.Drawing.Size(176, 39);
-            this.txbTongCong.TabIndex = 13;
-            this.txbTongCong.Text = "0";
-            this.txbTongCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txbDiscount
-            // 
-            this.txbDiscount.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txbDiscount.ForeColor = System.Drawing.Color.Black;
-            this.txbDiscount.Location = new System.Drawing.Point(543, 61);
-            this.txbDiscount.Margin = new System.Windows.Forms.Padding(6);
-            this.txbDiscount.Name = "txbDiscount";
-            this.txbDiscount.Size = new System.Drawing.Size(176, 39);
-            this.txbDiscount.TabIndex = 14;
-            this.txbDiscount.Text = "0";
-            this.txbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txbDiscount.TextChanged += new System.EventHandler(this.txbDiscount_TextChanged);
             // 
             // fTableManager
             // 

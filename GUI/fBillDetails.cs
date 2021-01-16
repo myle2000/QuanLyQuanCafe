@@ -112,7 +112,7 @@ namespace QuanLyQuanCafe.GUI
                                 pdfDoc.Add(addrShop);
                                 pdfDoc.Add(new Paragraph("\n"));
 
-                                Paragraph telShop = new Paragraph("Số điện thoại: 099", font);
+                                Paragraph telShop = new Paragraph("Số điện thoại: 028010641", font);
                                 telShop.Alignment = Element.ALIGN_CENTER;
                                 pdfDoc.Add(telShop);
                                 pdfDoc.Add(new Paragraph("\n"));

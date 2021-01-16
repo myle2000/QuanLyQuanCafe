@@ -369,6 +369,7 @@ namespace QuanLyQuanCafe
         {
             CultureInfo culture = new CultureInfo("vi-VN");
             txbTongCong.Text = (Convert.ToDouble(txbTamTinh.Text.Split(',')[0])*1000 - Int32.Parse(txbDiscount.Text)*1000).ToString("c", culture);
+
         }
     }
 }

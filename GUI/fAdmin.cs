@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,7 +57,6 @@ namespace QuanLyQuanCafe
             AddCategoryBinding();
             AddTableBinding();
             AddStaffBiding();
-
         }
         void LoadCbStatus()
         {
@@ -67,7 +67,9 @@ namespace QuanLyQuanCafe
         }
         void LoadSumBill()
         {
-            txbSum.Text = BillDAO.Instance.SumBill(dtpkFromDate.Value.AddMonths(0).AddDays(-1), dtpkToDate.Value.AddMonths(0).AddDays(1)).ToString();
+            //txbSum.Text = BillDAO.Instance.SumBill(dtpkFromDate.Value.AddMonths(0).AddDays(-1), dtpkToDate.Value.AddMonths(0).AddDays(1)).ToString();
+            txbSum.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:#,#}", BillDAO.Instance.SumBill(dtpkFromDate.Value.AddMonths(0).AddDays(-1), dtpkToDate.Value.AddMonths(0).AddDays(1)));
+
         }
         void AddAccountBinding()
         {
@@ -627,6 +629,11 @@ namespace QuanLyQuanCafe
 
 
         //Staff
+        public static bool IsValidPhone(string value)
+        {
+            string pattern = @"^-*[0-9,\.?\-?\(?\)?\ ]+$";
+            return Regex.IsMatch(value, pattern);
+        }
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
                 int id = Convert.ToInt32(txbIDStaff.Text);
@@ -637,10 +644,7 @@ namespace QuanLyQuanCafe
                         LoadListStaff();
                     }
         }
-        /*public static bool IsPhoneNumber(string number)
-        {
-            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
-        }*/
+
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             string name = cbNameStafff.Text;
@@ -660,6 +664,11 @@ namespace QuanLyQuanCafe
                 }    
             }
             string phone = txbPhone.Text;
+            if (phone.Length > 10||IsValidPhone(phone)==false)
+            {
+                MessageBox.Show("Vui lòng nhập đúng số điện thoại!");
+                return;
+            }    
             string address = txbAddress.Text;
             string sex = cbSex.SelectedItem.ToString();
             int salary = Int32.Parse(txbSalary.Text);
@@ -676,6 +685,11 @@ namespace QuanLyQuanCafe
         {
             string name = cbNameStafff.Text;
             string phone = txbPhone.Text;
+            if (phone.Length > 10 || IsValidPhone(phone) == false)
+            {
+                MessageBox.Show("Vui lòng nhập đúng số điện thoại!");
+                return;
+            }
             string address = txbAddress.Text;
             string sex = cbSex.SelectedItem.ToString();
             int salary = Convert.ToInt32(txbSalary.Text);
@@ -732,13 +746,11 @@ namespace QuanLyQuanCafe
 
         private void dtpkFromDate_ValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("You are in the DateTimePicker.ValueChanged event.");
             LoadSumBill();
         }
 
         private void dtpkToDate_ValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("You are in the DateTimePicker.ValueChanged event.");
             LoadSumBill();
         }
 
@@ -813,17 +825,17 @@ namespace QuanLyQuanCafe
                                 pdfDoc.Add(addrShop);
                                 pdfDoc.Add(new Paragraph("\n"));
 
-                                Paragraph telShop = new Paragraph("Số điện thoại: 099", font);
+                                Paragraph telShop = new Paragraph("Số điện thoại: 028010641", font);
                                 telShop.Alignment = Element.ALIGN_LEFT;
                                 pdfDoc.Add(telShop);
                                 pdfDoc.Add(new Paragraph("\n"));
 
-                                Paragraph numberBill = new Paragraph("Số lượng hóa đơn:", font);
+                                /*Paragraph numberBill = new Paragraph("Số lượng hóa đơn:", font);
                                 numberBill.Alignment = Element.ALIGN_LEFT;
                                 pdfDoc.Add(numberBill);
-                                pdfDoc.Add(new Paragraph("\n"));
+                                pdfDoc.Add(new Paragraph("\n"));*/
 
-                                Paragraph totalMoney = new Paragraph("Tổng thu:", font);
+                                Paragraph totalMoney = new Paragraph("Tổng thu:"+txbSum.Text.ToString()+"đ", font);
                                 totalMoney.Alignment = Element.ALIGN_LEFT;
                                 pdfDoc.Add(totalMoney);
                                 pdfDoc.Add(new Paragraph("\n"));
